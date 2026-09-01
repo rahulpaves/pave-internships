@@ -1,0 +1,817 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pave Internships Dubai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
+
+<style>
+/* ============ tokens ============ */
+:root{
+  --ground:#F4F8FB;
+  --surface:#FFFFFF;
+  --surface-2:#EDF4F9;
+  --ink:#15212C;
+  --ink-2:#4B5C6B;
+  --ink-3:#7B8B99;
+  --line:#DFE9F1;
+  --brand:#0F73B8;
+  --brand-deep:#0A4E7D;
+  --brand-soft:#E3F0F9;
+  --on-brand:#FFFFFF;
+  --sun:#E8942C;
+  --sun-soft:#FCEFDC;
+  --coral:#E2624B;
+  --shadow:0 1px 2px rgba(17,45,70,.05), 0 10px 30px -16px rgba(17,45,70,.28);
+  --shadow-lift:0 2px 4px rgba(17,45,70,.06), 0 20px 40px -18px rgba(17,45,70,.34);
+
+  --c-tech:#2D6BE4;
+  --c-med:#CE4459;
+  --c-aero:#0D85A6;
+  --c-avio:#5566CC;
+  --c-psy:#8A4FB0;
+  --c-biz:#D07C22;
+  --c-mech:#4C8A3C;
+  --c-sport:#0D9076;
+
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"DM Sans","Helvetica Neue",Arial,sans-serif;
+
+  --r:14px;
+  --r-lg:22px;
+  --w:72rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D141A;
+    --surface:#151F27;
+    --surface-2:#1B2833;
+    --ink:#E9F1F7;
+    --ink-2:#AEBFCC;
+    --ink-3:#7D8F9D;
+    --line:#25333E;
+    --brand:#63B4E8;
+    --brand-deep:#9CD2F3;
+    --brand-soft:#14303F;
+    --on-brand:#0B1720;
+    --sun:#F0B266;
+    --sun-soft:#2D2413;
+    --coral:#EE8570;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -16px rgba(0,0,0,.7);
+    --shadow-lift:0 2px 6px rgba(0,0,0,.45), 0 22px 44px -20px rgba(0,0,0,.8);
+
+    --c-tech:#8FB4FA;
+    --c-med:#F1909F;
+    --c-aero:#6FC9E4;
+    --c-avio:#A3AEF2;
+    --c-psy:#C9A2E8;
+    --c-biz:#EFB268;
+    --c-mech:#A4CE8C;
+    --c-sport:#5FD2B2;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D141A;
+  --surface:#151F27;
+  --surface-2:#1B2833;
+  --ink:#E9F1F7;
+  --ink-2:#AEBFCC;
+  --ink-3:#7D8F9D;
+  --line:#25333E;
+  --brand:#63B4E8;
+  --brand-deep:#9CD2F3;
+  --brand-soft:#14303F;
+  --on-brand:#0B1720;
+  --sun:#F0B266;
+  --sun-soft:#2D2413;
+  --coral:#EE8570;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -16px rgba(0,0,0,.7);
+  --shadow-lift:0 2px 6px rgba(0,0,0,.45), 0 22px 44px -20px rgba(0,0,0,.8);
+
+  --c-tech:#8FB4FA;
+  --c-med:#F1909F;
+  --c-aero:#6FC9E4;
+  --c-avio:#A3AEF2;
+  --c-psy:#C9A2E8;
+  --c-biz:#EFB268;
+  --c-mech:#A4CE8C;
+  --c-sport:#5FD2B2;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:1rem;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;}
+a{color:inherit;}
+:focus-visible{outline:2.5px solid var(--brand);outline-offset:3px;border-radius:6px;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+}
+
+.wrap{width:min(100% - 2.5rem,var(--w));margin-inline:auto;}
+.eyebrow{
+  font-size:.75rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);margin:0;
+}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;text-wrap:balance;margin:0;}
+
+/* ============ header ============ */
+.site-head{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--ground) 88%,transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.head-in{display:flex;align-items:center;gap:1.5rem;padding-block:.85rem;}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:700;}
+.brand-mark{
+  width:2rem;height:2rem;border-radius:9px;flex:none;
+  background:linear-gradient(140deg,var(--brand),var(--brand-deep));
+  color:var(--on-brand);display:grid;place-items:center;
+  font-family:var(--display);font-size:1.05rem;line-height:1;
+}
+.brand-name{font-family:var(--display);font-size:1.15rem;}
+.brand-name em{font-style:normal;color:var(--ink-3);font-weight:400;}
+.nav{margin-left:auto;display:flex;align-items:center;gap:.35rem;}
+.nav button,.nav a.navlink{
+  font:inherit;font-size:.9rem;font-weight:500;
+  background:none;border:0;cursor:pointer;color:var(--ink-2);
+  padding:.5rem .7rem;border-radius:99px;text-decoration:none;
+  transition:background-color .18s,color .18s;
+}
+.nav button:hover,.nav a.navlink:hover{background:var(--surface-2);color:var(--ink);}
+@media (max-width:52rem){ .nav .hide-sm{display:none;} }
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font:inherit;font-weight:600;font-size:.95rem;
+  padding:.72rem 1.25rem;border-radius:99px;border:1.5px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:transform .16s,box-shadow .18s,background-color .18s;
+}
+.btn-primary{background:var(--brand);color:var(--on-brand);box-shadow:0 8px 18px -10px var(--brand);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px var(--brand);}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line);box-shadow:var(--shadow);}
+.btn-ghost:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+
+/* ============ hero ============ */
+.hero{position:relative;overflow:hidden;}
+.hero::before{
+  content:"";position:absolute;inset:-30% -10% auto -10%;height:150%;
+  background:
+    radial-gradient(45rem 26rem at 18% 12%, var(--brand-soft), transparent 65%),
+    radial-gradient(38rem 22rem at 88% 4%, var(--sun-soft), transparent 62%);
+  pointer-events:none;
+}
+.hero-in{position:relative;padding-block:clamp(3rem,7vw,5.5rem) clamp(2.5rem,5vw,4rem);}
+.hero h1{
+  font-size:clamp(2.4rem,1.4rem + 4.2vw,4.4rem);
+  line-height:1.03;letter-spacing:-.028em;margin-top:1rem;max-width:15ch;
+}
+.hero h1 .hl{
+  color:var(--brand-deep);
+  background:linear-gradient(transparent 62%, color-mix(in srgb,var(--sun) 42%,transparent) 62%);
+}
+.hero-sub{font-size:clamp(1.05rem,1rem + .4vw,1.25rem);color:var(--ink-2);max-width:52ch;margin:1.35rem 0 0;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem;}
+.trust{
+  display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem;
+}
+.trust span{
+  background:var(--surface);border:1px solid var(--line);border-radius:99px;
+  padding:.42rem .9rem;font-size:.85rem;font-weight:500;color:var(--ink-2);
+  box-shadow:var(--shadow);
+}
+.trust span b{color:var(--ink);font-weight:700;}
+
+/* ============ sections ============ */
+section.band{padding-block:clamp(3rem,6vw,5rem);}
+.sec-head{max-width:44ch;margin-bottom:2.25rem;}
+.sec-head h2{font-size:clamp(1.75rem,1.4rem + 1.4vw,2.5rem);line-height:1.1;margin-top:.6rem;}
+.sec-head p{color:var(--ink-2);margin:.85rem 0 0;}
+
+/* ============ programme cards ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(19rem,1fr));gap:1.25rem;}
+.card{
+  --c:var(--brand);
+  display:flex;flex-direction:column;gap:.85rem;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:1.5rem 1.4rem 1.25rem;
+  text-decoration:none;color:inherit;
+  box-shadow:var(--shadow);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  position:relative;overflow:hidden;
+}
+.card::after{
+  content:"";position:absolute;inset:auto -25% -70% auto;width:18rem;height:18rem;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, var(--c) 0%, transparent 68%);
+  opacity:.16;transition:opacity .25s ease,transform .3s ease;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift);border-color:color-mix(in srgb,var(--c) 40%,var(--line));}
+.card:hover::after{opacity:.3;transform:scale(1.15);}
+.card-ico{
+  width:3rem;height:3rem;border-radius:14px;flex:none;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--c) 13%,var(--surface));
+  color:var(--c);position:relative;z-index:1;
+}
+.card-field{font-size:.75rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c);position:relative;z-index:1;}
+.card h3{font-size:1.4rem;line-height:1.16;position:relative;z-index:1;}
+.card p{margin:0;color:var(--ink-2);font-size:.95rem;flex:1;position:relative;z-index:1;}
+.card-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  border-top:1px solid var(--line);padding-top:.9rem;margin-top:.35rem;
+  font-size:.88rem;position:relative;z-index:1;
+}
+.card-foot .len{color:var(--ink-3);}
+.card-foot .fee{font-weight:700;font-variant-numeric:tabular-nums;}
+
+/* ============ steps ============ */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.25rem;}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.5rem 1.4rem;box-shadow:var(--shadow);}
+.step-n{
+  width:2.1rem;height:2.1rem;border-radius:50%;display:grid;place-items:center;
+  background:var(--brand-soft);color:var(--brand-deep);
+  font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.9rem;
+}
+.step h3{font-size:1.2rem;margin-bottom:.4rem;}
+.step p{margin:0;color:var(--ink-2);font-size:.95rem;}
+
+/* ============ parents band ============ */
+.parents{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:calc(var(--r-lg) + 8px);
+  padding:clamp(1.75rem,4vw,3rem);
+  box-shadow:var(--shadow);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(1.5rem,4vw,3.5rem);
+  align-items:start;
+}
+@media (max-width:50rem){ .parents{grid-template-columns:1fr;} }
+.parents h2{font-size:clamp(1.6rem,1.3rem + 1.2vw,2.25rem);line-height:1.12;margin-top:.6rem;}
+.parents > div > p{color:var(--ink-2);margin:.85rem 0 0;}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:.9rem;}
+.checks li{display:grid;grid-template-columns:1.5rem 1fr;gap:.85rem;align-items:start;font-size:.98rem;}
+.checks svg{margin-top:.28rem;color:var(--brand);}
+.checks b{display:block;font-weight:700;}
+.checks span{color:var(--ink-2);font-size:.92rem;}
+
+/* ============ faq ============ */
+.faq{display:grid;gap:.7rem;max-width:52rem;}
+.faq details{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:0 1.15rem;box-shadow:var(--shadow);
+}
+.faq summary{
+  cursor:pointer;list-style:none;padding:1.05rem 2rem 1.05rem 0;position:relative;
+  font-weight:600;font-size:1.02rem;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{
+  content:"";position:absolute;right:.25rem;top:1.45rem;width:.6rem;height:.6rem;
+  border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:rotate(-135deg);}
+.faq p{margin:0 0 1.15rem;color:var(--ink-2);font-size:.95rem;max-width:60ch;}
+
+/* ============ detail ============ */
+.d-hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+.d-hero::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(160deg,color-mix(in srgb,var(--c) 16%,var(--ground)),var(--ground) 72%);
+}
+.d-hero-in{position:relative;padding-block:1.5rem clamp(2rem,4vw,3rem);}
+.back{
+  display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;
+  font-size:.9rem;font-weight:600;color:var(--ink-2);
+  padding:.45rem .85rem .45rem .6rem;border-radius:99px;background:var(--surface);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.back:hover{color:var(--c);}
+.d-badge{
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:1.75rem;
+  color:var(--c);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
+.d-badge .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--c);}
+.d-hero h1{font-size:clamp(2.1rem,1.4rem + 3vw,3.5rem);line-height:1.05;letter-spacing:-.025em;margin-top:.75rem;max-width:20ch;}
+.d-kicker{font-family:var(--display);font-size:clamp(1.05rem,1rem + .4vw,1.3rem);color:var(--ink-2);margin:.9rem 0 0;max-width:46ch;}
+.pills{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.75rem;}
+.pills span{
+  background:var(--surface);border:1px solid var(--line);border-radius:99px;
+  padding:.45rem .95rem;font-size:.87rem;font-weight:500;color:var(--ink-2);box-shadow:var(--shadow);
+}
+.pills span b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;}
+
+.d-body{display:grid;grid-template-columns:minmax(0,1fr) 20rem;gap:clamp(1.5rem,4vw,3.5rem);padding-block:clamp(2rem,4vw,3.25rem) 4rem;align-items:start;}
+@media (max-width:56rem){ .d-body{grid-template-columns:1fr;} }
+.lede{font-size:1.15rem;line-height:1.65;color:var(--ink);margin:0;max-width:62ch;}
+.d-sec{margin-top:2.75rem;}
+.d-sec > h2{font-size:1.5rem;margin-bottom:1.25rem;}
+
+.timeline{list-style:none;margin:0;padding:0 0 0 1.9rem;position:relative;}
+.timeline::before{content:"";position:absolute;left:.42rem;top:.55rem;bottom:.55rem;width:2px;background:var(--line);}
+.timeline li{position:relative;padding-bottom:1.5rem;}
+.timeline li:last-child{padding-bottom:0;}
+.timeline li::before{
+  content:"";position:absolute;left:-1.9rem;top:.42rem;width:.95rem;height:.95rem;border-radius:50%;
+  background:var(--surface);border:3px solid var(--c);
+}
+.tl-tag{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c);}
+.timeline h3{font-size:1.15rem;margin-top:.2rem;}
+.timeline p{margin:.3rem 0 0;color:var(--ink-2);font-size:.95rem;max-width:56ch;}
+
+.outcomes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:.7rem;}
+.outcomes li{
+  display:grid;grid-template-columns:1.35rem 1fr;gap:.75rem;align-items:start;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:.9rem 1rem;font-size:.95rem;box-shadow:var(--shadow);
+}
+.outcomes svg{margin-top:.25rem;color:var(--c);}
+
+.note{
+  margin-top:1.75rem;padding:1.1rem 1.25rem;border-radius:var(--r);
+  background:color-mix(in srgb,var(--c) 8%,var(--surface));
+  border:1px solid color-mix(in srgb,var(--c) 28%,var(--line));
+  color:var(--ink-2);font-size:.95rem;
+}
+.note b{color:var(--ink);}
+.motto{
+  margin-top:2.5rem;font-family:var(--display);font-weight:600;
+  font-size:clamp(1.3rem,1.1rem + 1vw,1.9rem);line-height:1.2;color:var(--c);text-wrap:balance;
+}
+
+.aside{position:sticky;top:5.5rem;display:grid;gap:1rem;}
+@media (max-width:56rem){ .aside{position:static;} }
+.apply{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.4rem;box-shadow:var(--shadow-lift);
+}
+.apply h2{font-size:1.2rem;}
+.apply p{color:var(--ink-2);font-size:.92rem;margin:.6rem 0 0;}
+.facts{list-style:none;margin:1.1rem 0 1.25rem;padding:0;display:grid;gap:.05rem;}
+.facts li{display:flex;justify-content:space-between;gap:1rem;padding:.62rem 0;border-bottom:1px solid var(--line);font-size:.93rem;}
+.facts li:last-child{border-bottom:0;}
+.facts dt,.facts .k{color:var(--ink-3);}
+.facts .v{font-weight:700;text-align:right;font-variant-numeric:tabular-nums;}
+.facts .v small{display:block;font-weight:400;color:var(--ink-3);font-size:.78rem;}
+.apply .btn{width:100%;}
+.contact-stub{
+  border:1.5px dashed var(--line);border-radius:99px;padding:.72rem 1rem;
+  text-align:center;font-weight:600;font-size:.95rem;color:var(--ink-2);
+}
+
+.pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);}
+.pager a{text-decoration:none;max-width:17rem;}
+.pager .dir{display:block;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);}
+.pager .nm{display:block;font-family:var(--display);font-weight:600;font-size:1.02rem;margin-top:.25rem;}
+.pager a:hover .nm{color:var(--brand);}
+.pager .next{text-align:right;margin-left:auto;}
+
+/* ============ footer ============ */
+.site-foot{border-top:1px solid var(--line);background:var(--surface);}
+.foot-in{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:space-between;align-items:center;padding-block:1.75rem 2.25rem;}
+.foot-in p{margin:0;color:var(--ink-3);font-size:.88rem;}
+.foot-links{display:flex;flex-wrap:wrap;gap:1.15rem;}
+.foot-links a,.foot-links button{
+  font:inherit;font-size:.88rem;background:none;border:0;padding:0;cursor:pointer;
+  color:var(--ink-2);text-decoration:none;
+}
+.foot-links a:hover,.foot-links button:hover{color:var(--brand);}
+
+.view{animation:rise .3s ease both;}
+@keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+</style>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#/">
+      <span class="brand-mark">P</span>
+      <span class="brand-name">Pave <em>Internships</em></span>
+    </a>
+    <nav class="nav">
+      <button type="button" data-scroll="programmes">Programmes</button>
+      <button type="button" data-scroll="how" class="hide-sm">How it works</button>
+      <button type="button" data-scroll="parents" class="hide-sm">For parents</button>
+      <button type="button" data-scroll="faq" class="hide-sm">FAQ</button>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <p>Pave Internships &middot; Dubai &middot; Ages 14&ndash;17</p>
+    <div class="foot-links">
+      <button type="button" data-scroll="programmes">All programmes</button>
+      <button type="button" data-scroll="parents">For parents</button>
+      <button type="button" data-scroll="faq">FAQ</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- icons: simple geometric line marks, one per discipline ---- */
+const ICONS = {
+  chip:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2.5"/><rect x="10" y="10" width="4" height="4" rx="1"/><path d="M9 6V3M15 6V3M9 21v-3M15 21v-3M6 9H3M6 15H3M21 9h-3M21 15h-3"/></svg>',
+  care:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>',
+  plane:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M21 3 3 10l7 3 3 8z"/><path d="m10 13 4-4"/></svg>',
+  orbit:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 20l7-4 7 4z"/><path d="M12 3v13"/></svg>',
+  mind:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v4.5M12 16.5V21"/></svg>',
+  bulb:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="10" r="5.5"/><path d="M9.5 17.5h5M10.5 20.5h3M12 2.5V1M4.5 10H3M21 10h-1.5M6.2 4.7 5.1 3.6M17.8 4.7l1.1-1.1"/></svg>',
+  gear:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6 6.4 6.4M17.6 17.6l1.8 1.8M19.4 4.6 17.6 6.4M6.4 17.6l-1.8 1.8"/></svg>',
+  racket:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="13" cy="9" rx="6.5" ry="7"/><path d="M8.6 14.2 4 20M9 6.5v5M13 4.5v9M17 6.5v5M7 9h12"/></svg>'
+};
+const TICK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"/></svg>';
+
+const PROGRAMMES = [
+  {
+    slug:"it-ai-product",
+    title:"IT, AI & Product Development",
+    field:"Technology & Product",
+    color:"var(--c-tech)", icon:"chip",
+    blurb:"Build a real product inside Pave — from spotting a problem and interviewing users to pitching the finished idea.",
+    length:"4 days · 16 hours", fee:"AED 1,750", vat:"+ VAT",
+    ages:"14–17", location:"Dubai", hours:null,
+    lede:"A hands-on programme introducing students to AI, product development, software and user research, hosted inside Pave, an AI-powered college admissions platform.",
+    scheduleLabel:"What happens each day",
+    schedule:[
+      {tag:"Day 1",title:"Products, software & Pave"},
+      {tag:"Day 2",title:"User research, interviews & journey mapping"},
+      {tag:"Day 3",title:"AI fundamentals & designing AI features"},
+      {tag:"Day 4",title:"Feature specs, pitching & presentations"}
+    ],
+    note:"<b>The capstone:</b> students take one idea all the way through — identifying a problem, researching real users, designing the solution, and delivering a final product pitch.",
+    gainsLabel:"What students leave with",
+    gains:["Practical AI & product skills","User research experience","A one-page feature specification","A 5-minute product pitch","Hands-on Pave experience","A signed completion certificate"]
+  },
+  {
+    slug:"medical",
+    title:"The Medical Internship",
+    kicker:"Real-world exposure. Meaningful learning. A clearer view of a career in healthcare.",
+    field:"Healthcare & Medicine",
+    color:"var(--c-med)", icon:"care",
+    blurb:"Supervised, first-hand time inside a real clinical environment, with the people who work there.",
+    length:"5 days", fee:"AED 2,000", vat:"+ VAT",
+    ages:"14–17", location:"Dubai", hours:null,
+    lede:"Gain supervised, first-hand exposure to a real clinical environment and discover what it’s like to work in healthcare.",
+    scheduleLabel:null, schedule:[],
+    gainsLabel:"What students do",
+    gains:["Explore how clinics and patient care work","Meet and learn about different healthcare careers","Understand empathy, communication & confidentiality","Develop teamwork & professionalism","Build confidence and gain career clarity"],
+    note:"<b>The takeaway:</b> real clinical insight, professional skills and a clearer vision for the future.",
+    notice:"Educational and observational only. No surgical, invasive or hands-on procedures are involved.",
+    motto:"Observe. Experience. Learn. Discover."
+  },
+  {
+    slug:"aerospace-engineering",
+    title:"Engineering the Skies",
+    kicker:"An aerospace engineering internship built around aircraft systems, tools and safety.",
+    field:"Aerospace Engineering",
+    color:"var(--c-aero)", icon:"plane",
+    blurb:"Aircraft systems, workshop tools and aviation technology, taught by working engineers.",
+    length:"5 days", fee:"AED 1,750", vat:"+ VAT",
+    ages:"14–17", location:"Dubai", hours:"10 AM – 3 PM",
+    lede:"A hands-on internship introducing students to aerospace engineering, aircraft systems, safety and aviation technology through expert-led sessions and practical activities.",
+    scheduleLabel:"What happens each day",
+    schedule:[
+      {tag:"Day 1",title:"Aerospace engineering & safety"},
+      {tag:"Day 2",title:"Aviation tools & mechanical operations"},
+      {tag:"Day 3",title:"Aircraft electrical systems & testing"},
+      {tag:"Day 4",title:"Soldering, ESD & aircraft components"},
+      {tag:"Day 5",title:"Engines, systems integration & careers"}
+    ],
+    gainsLabel:"What students gain",
+    gains:["Practical engineering & workshop skills","Experience with aviation tools and equipment","Basic mechanical, electrical & electronics knowledge","Understanding of aircraft systems","Insight into aerospace career pathways","Certificate of Completion"]
+  },
+  {
+    slug:"pathways-to-aerospace",
+    title:"Pathways to Aerospace",
+    kicker:"An immersive aeronautical engineering experience.",
+    field:"Aeronautical Engineering",
+    color:"var(--c-avio)", icon:"orbit",
+    blurb:"Hands-on time with aviation tools, avionics components and real engineering challenges.",
+    length:"5 days", fee:"AED 1,750", vat:"+ VAT",
+    ages:"14–17", location:"Dubai", hours:"10 AM – 3 PM",
+    lede:"Explore the world of aeronautical engineering through expert-led sessions and hands-on experience with aviation tools, aircraft components and engineering challenges.",
+    scheduleLabel:"What happens each day",
+    schedule:[
+      {tag:"Day 1",title:"Flight fundamentals & aerospace safety"},
+      {tag:"Day 2",title:"Aviation tools & mechanical skills"},
+      {tag:"Day 3",title:"Aircraft electrical systems & testing"},
+      {tag:"Day 4",title:"Soldering, ESD & avionics components"},
+      {tag:"Day 5",title:"Engines, aircraft systems & careers"}
+    ],
+    gainsLabel:"What students gain",
+    gains:["Practical engineering skills","Aircraft systems knowledge","Safety awareness","Problem-solving skills","Career insight","Certificate of Completion"],
+    note:"<b>Career pathways covered:</b> Aerospace, Aeronautical, Avionics, Mechatronics, Robotics and Aircraft Maintenance."
+  },
+  {
+    slug:"psychology",
+    title:"Psychology Internship",
+    field:"Psychology",
+    color:"var(--c-psy)", icon:"mind",
+    blurb:"Human behaviour, emotions and the mind — through case studies, role plays and real interventions.",
+    length:"5 days", fee:"AED 2,000", vat:"+ VAT",
+    ages:"14–17", location:"Dubai", hours:null,
+    lede:"Explore the fascinating world of psychology, human behaviour, emotions and the mind through expert-led sessions, case studies, role plays and interactive activities.",
+    scheduleLabel:"What happens each day",
+    schedule:[
+      {tag:"Day 1",title:"Psychology foundations & personality"},
+      {tag:"Day 2",title:"Client intake, emotions & behaviour"},
+      {tag:"Day 3",title:"Social psychology & career pathways"},
+      {tag:"Day 4",title:"CBT, mindfulness & interventions"},
+      {tag:"Day 5",title:"Ethics, presentations & future pathways"}
+    ],
+    gainsLabel:"What students gain",
+    gains:["Understanding of human behaviour","Hands-on case-based learning","Empathy, communication & critical-thinking skills","Insight into Clinical, Counselling, Educational & Organisational Psychology","Confidence in presenting psychological cases","Certificate of Completion"]
+  },
+  {
+    slug:"micro-start-ups",
+    title:"Micro Start-Ups",
+    kicker:"Go beyond learning entrepreneurship — build and launch your own micro-business.",
+    field:"Entrepreneurship",
+    color:"var(--c-biz)", icon:"bulb",
+    blurb:"Find an idea, test it on real customers, build an MVP and pitch it like a founder.",
+    length:"5 days", fee:"AED 2,000", vat:"+ VAT",
+    ages:"14–17", location:"Dubai", hours:null,
+    lede:"Go beyond learning entrepreneurship — build and launch your own micro-business through hands-on challenges, customer research, MVP development and marketing.",
+    scheduleLabel:"What happens each day",
+    schedule:[
+      {tag:"Day 1",title:"Ideas & opportunity discovery"},
+      {tag:"Day 2",title:"Customer research & validation"},
+      {tag:"Day 3",title:"MVP, pricing & branding"},
+      {tag:"Day 4",title:"Marketing, outreach & launch"},
+      {tag:"Day 5",title:"Refine, measure & pitch"}
+    ],
+    gainsLabel:"What students walk away with",
+    gains:["A validated business idea","Real customer research experience","A simple MVP or business concept","Practical branding, pricing & marketing skills","A confident founder pitch","Certificate of Completion"],
+    motto:"Create. Build. Launch. Think like an entrepreneur."
+  },
+  {
+    slug:"mechanical-engineering",
+    title:"Mechanical Engineering",
+    kicker:"Build. Engineer. Solve.",
+    field:"Mechanical Engineering",
+    color:"var(--c-mech)", icon:"gear",
+    blurb:"Real workshop training — fabrication, machining, wiring and the machines they drive.",
+    length:"5 days", fee:"AED 1,750", vat:"+ 5% VAT",
+    ages:"14–17", location:"Dubai", hours:"10 AM – 3 PM",
+    lede:"Step into the world of mechanical engineering through hands-on workshop training, fabrication, machining, electrical systems and real-world engineering applications.",
+    scheduleLabel:"Five days of real engineering",
+    schedule:[
+      {tag:"Day 1",title:"Engineering in action",text:"Safety, workshop practices, tools & precision."},
+      {tag:"Day 2",title:"Build & fabricate",text:"Metal cutting, drilling, filing, machining & accuracy."},
+      {tag:"Day 3",title:"Power & connect",text:"Electrical measurements, wiring & soldering."},
+      {tag:"Day 4",title:"Systems & machines",text:"Mechanical systems, components & turbine technology."},
+      {tag:"Day 5",title:"Think like an engineer",text:"Problem-solving, diagnostics & technical challenges."}
+    ],
+    gainsLabel:"What students walk away with",
+    gains:["Hands-on workshop skills","Fabrication & machining practice","Electrical wiring & soldering experience","Understanding of mechanical systems & turbines","Engineering problem-solving & diagnostics","Certificate of Completion"]
+  },
+  {
+    slug:"sports-management",
+    title:"Sports Management",
+    kicker:"Step inside the business of sport.",
+    field:"Sports Business",
+    color:"var(--c-sport)", icon:"racket",
+    blurb:"Behind the scenes at a real, operating padel club — ending with a pitch to club leadership.",
+    length:"5 days · 15 hours", fee:"AED 2,000", vat:"+ VAT",
+    ages:"14–17", location:"Dubai", hours:null,
+    lede:"Go behind the scenes of a real operating padel club and discover what it takes to build, run and grow a sports business.",
+    scheduleLabel:"What happens each day",
+    schedule:[
+      {tag:"Day 1",title:"Sports business",text:"How clubs make money: courts, memberships, coaching, events & sponsorships."},
+      {tag:"Day 2",title:"Club operations",text:"See how a club runs day-to-day and identify real opportunities to improve it."},
+      {tag:"Day 3",title:"Member experience",text:"Discover why members stay, why they leave and how clubs build community."},
+      {tag:"Day 4",title:"Marketing & events",text:"Create your own community event and learn how to attract and engage members."},
+      {tag:"Day 5",title:"Growth & final pitch",text:"Build a business improvement idea and pitch it to club leadership."}
+    ],
+    gainsLabel:"What students leave with",
+    gains:["Real sports-business exposure","A practical improvement proposal","Event-design experience","Pitching & presentation skills","A signed completion certificate"],
+    motto:"Not just playing the game. Learn how to run it."
+  }
+];
+
+/* Set CONTACT to a mailto:, https:// or wa.me link to turn the sidebar
+   button into a live "Ask about dates" call to action. */
+const CONTACT = "";
+
+const app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderHome(){
+  document.title = "Pave Internships Dubai";
+  const cards = PROGRAMMES.map(p => `
+    <a class="card" href="#/${p.slug}" style="--c:${p.color}">
+      <span class="card-ico">${ICONS[p.icon]}</span>
+      <span class="card-field">${esc(p.field)}</span>
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.blurb)}</p>
+      <span class="card-foot">
+        <span class="len">${esc(p.length)}</span>
+        <span class="fee">${esc(p.fee)}</span>
+      </span>
+    </a>`).join("");
+
+  app.innerHTML = `
+  <div class="view">
+    <section class="hero">
+      <div class="wrap hero-in">
+        <p class="eyebrow">Dubai &middot; Ages 14&ndash;17</p>
+        <h1>Try the career <span class="hl">before</span> you choose it.</h1>
+        <p class="hero-sub">Short, supervised internships for students aged 14&ndash;17. Real workplaces, real professionals, real tasks &mdash; and every programme ends with something your child has actually made.</p>
+        <div class="hero-cta">
+          <button type="button" class="btn btn-primary" data-scroll="programmes">Browse programmes</button>
+          <button type="button" class="btn btn-ghost" data-scroll="parents">Information for parents</button>
+        </div>
+        <div class="trust">
+          <span><b>${PROGRAMMES.length}</b> programmes</span>
+          <span><b>4&ndash;5 day</b> cohorts</span>
+          <span>Led by <b>working professionals</b></span>
+          <span><b>Certificate</b> on completion</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="programmes">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow">The programmes</p>
+          <h2>Eight fields. Pick the one you&rsquo;re curious about.</h2>
+          <p>Every programme runs in Dubai over four or five days. Tap any card for the full day-by-day plan, fees and what students take home.</p>
+        </div>
+        <div class="grid">${cards}</div>
+      </div>
+    </section>
+
+    <section class="band" id="how">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow">How it works</p>
+          <h2>Three steps, start to certificate.</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-n">1</div>
+            <h3>Choose a programme</h3>
+            <p>Browse the eight fields, read the full day-by-day plan, then get in touch to check the next cohort dates and reserve a place.</p>
+          </div>
+          <div class="step">
+            <div class="step-n">2</div>
+            <h3>Show up and do the work</h3>
+            <p>Four or five supervised days on site in Dubai, led by professionals working in the field &mdash; hands-on tasks, not lectures.</p>
+          </div>
+          <div class="step">
+            <div class="step-n">3</div>
+            <h3>Leave with something real</h3>
+            <p>A pitch, a proposal, a spec or a portfolio of practical skills &mdash; plus a signed certificate of completion for university applications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="parents">
+      <div class="wrap">
+        <div class="parents">
+          <div>
+            <p class="eyebrow">For parents</p>
+            <h2>Supervised, structured, and worth the week.</h2>
+            <p>These are short work-experience programmes, not summer camps. Students are supervised throughout, work in small cohorts, and finish with evidence of what they did.</p>
+          </div>
+          <ul class="checks">
+            <li>${TICK}<div><b>Supervised at all times</b><span>Every session is led and overseen by professionals working in the field.</span></div></li>
+            <li>${TICK}<div><b>Age-appropriate by design</b><span>Built specifically for 14&ndash;17 year olds. The medical programme is observational only &mdash; no clinical procedures.</span></div></li>
+            <li>${TICK}<div><b>Small cohorts, fixed dates</b><span>Places are limited so every student gets real time with the professionals leading the week.</span></div></li>
+            <li>${TICK}<div><b>Something to show for it</b><span>A signed certificate of completion, plus finished work students can talk about in interviews and applications.</span></div></li>
+            <li>${TICK}<div><b>Clear pricing</b><span>AED 1,750&ndash;2,000 per programme. Fees are quoted excluding VAT.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="faq">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow">Questions</p>
+          <h2>Before you book.</h2>
+        </div>
+        <div class="faq">
+          <details><summary>Who are these programmes for?</summary><p>Students aged 14 to 17. No prior experience is required for any programme &mdash; each one starts from the fundamentals and builds up over the week.</p></details>
+          <details><summary>How long is each internship?</summary><p>Most run over five days. The IT, AI &amp; Product Development programme runs over four days totalling 16 hours, and Sports Management totals 15 hours across its five days. The engineering programmes run 10 AM to 3 PM.</p></details>
+          <details><summary>What does it cost?</summary><p>AED 1,750 or AED 2,000 depending on the programme, quoted excluding VAT. The exact fee for each one is listed on its page.</p></details>
+          <details><summary>Does my child get a certificate?</summary><p>Yes &mdash; every programme finishes with a signed certificate of completion.</p></details>
+          <details><summary>Is the medical internship hands-on with patients?</summary><p>No. It is educational and observational only. Students learn how clinics and patient care work and meet people in different healthcare roles, but no surgical, invasive or hands-on procedures are involved.</p></details>
+          <details><summary>When do the next cohorts start?</summary><p>Cohorts run on fixed dates through the year and places are limited. Get in touch with the Pave team for the next available start date for the programme you want.</p></details>
+        </div>
+      </div>
+    </section>
+  </div>`;
+}
+
+function renderDetail(p, i){
+  document.title = p.title + " — Pave Internships";
+  const prev = PROGRAMMES[i-1], next = PROGRAMMES[i+1];
+
+  const schedule = p.schedule.length ? `
+    <div class="d-sec">
+      <h2>${esc(p.scheduleLabel)}</h2>
+      <ol class="timeline">
+        ${p.schedule.map(d => `
+          <li>
+            <div class="tl-tag">${esc(d.tag)}</div>
+            <h3>${esc(d.title)}</h3>
+            ${d.text ? `<p>${esc(d.text)}</p>` : ""}
+          </li>`).join("")}
+      </ol>
+    </div>` : "";
+
+  app.innerHTML = `
+  <div class="view" style="--c:${p.color}">
+    <section class="d-hero">
+      <div class="wrap d-hero-in">
+        <a class="back" href="#/">&larr; All programmes</a>
+        <div class="d-badge"><span class="dot"></span>${esc(p.field)}</div>
+        <h1>${esc(p.title)}</h1>
+        ${p.kicker ? `<p class="d-kicker">${esc(p.kicker)}</p>` : ""}
+        <div class="pills">
+          <span><b>${esc(p.location)}</b></span>
+          <span>Ages <b>${esc(p.ages)}</b></span>
+          <span><b>${esc(p.length)}</b></span>
+          ${p.hours ? `<span><b>${esc(p.hours)}</b></span>` : ""}
+          <span><b>${esc(p.fee)}</b> ${esc(p.vat)}</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap d-body">
+      <div>
+        <p class="lede">${esc(p.lede)}</p>
+        ${schedule}
+        <div class="d-sec">
+          <h2>${esc(p.gainsLabel)}</h2>
+          <ul class="outcomes">${p.gains.map(g => `<li>${TICK}<span>${esc(g)}</span></li>`).join("")}</ul>
+        </div>
+        ${p.note ? `<div class="note">${p.note}</div>` : ""}
+        ${p.notice ? `<div class="note"><b>Please note:</b> ${esc(p.notice)}</div>` : ""}
+        ${p.motto ? `<p class="motto">${esc(p.motto)}</p>` : ""}
+        <nav class="pager">
+          ${prev ? `<a href="#/${prev.slug}"><span class="dir">&larr; Previous</span><span class="nm">${esc(prev.title)}</span></a>` : "<span></span>"}
+          ${next ? `<a class="next" href="#/${next.slug}"><span class="dir">Next &rarr;</span><span class="nm">${esc(next.title)}</span></a>` : ""}
+        </nav>
+      </div>
+
+      <aside class="aside">
+        <div class="apply">
+          <h2>Reserve a place</h2>
+          <ul class="facts">
+            <li><span class="k">Location</span><span class="v">${esc(p.location)}</span></li>
+            <li><span class="k">Ages</span><span class="v">${esc(p.ages)}</span></li>
+            <li><span class="k">Length</span><span class="v">${esc(p.length)}${p.hours ? `<small>${esc(p.hours)}</small>` : ""}</span></li>
+            <li><span class="k">Fee</span><span class="v">${esc(p.fee)}<small>${esc(p.vat)}</small></span></li>
+          </ul>
+          ${CONTACT ? `<a class="btn btn-primary" href="${CONTACT}">Ask about dates</a>` : `<div class="contact-stub">Contact the Pave team</div>`}
+          <p>Cohorts are small and run on fixed dates. Get in touch to check the next start date for this programme and reserve a place.</p>
+        </div>
+      </aside>
+    </div>
+  </div>`;
+}
+
+function scrollToSection(id){
+  const go = () => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
+  };
+  if (location.hash && location.hash !== "#/" && location.hash !== "#"){
+    location.hash = "#/";
+    setTimeout(go, 60);
+  } else {
+    go();
+  }
+}
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-scroll]");
+  if (t) { e.preventDefault(); scrollToSection(t.dataset.scroll); }
+});
+
+function route(){
+  const slug = decodeURIComponent(location.hash.replace(/^#\/?/,"")).trim();
+  const i = PROGRAMMES.findIndex(p => p.slug === slug);
+  if (i === -1) renderHome(); else renderDetail(PROGRAMMES[i], i);
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", route);
+route();
+</script>
