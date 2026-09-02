@@ -1,8 +1,8 @@
 # Pave Internships
 
-A single-page website for Pave's student internship programmes in Dubai (ages 14–17).
+A single-page website for Pave's student internship programmes in Dubai and Abu Dhabi.
 
-Eight programmes, each with its own page: day-by-day plan, fees, and what students leave with.
+Nine programmes, each with its own page: day-by-day plan, fees, and what students leave with.
 
 - **Live site:** https://rahulpaves.github.io/pave-internships/
 - **Source:** `index.html` — one self-contained file, no build step, no dependencies.
