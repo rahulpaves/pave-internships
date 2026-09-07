@@ -2,7 +2,7 @@
 
 A single-page website for Pave's student internship programmes in Dubai, Abu Dhabi and online.
 
-Twenty-five programmes, each with its own page: day-by-day plan, fees, and what students leave with.
+Twenty-eight programmes, each with its own page: day-by-day plan, fees, and what students leave with.
 
 - **Live site:** https://rahulpaves.github.io/pave-internships/
 - **Source:** `index.html` — one self-contained file, no build step, no dependencies.
@@ -12,6 +12,7 @@ Twenty-five programmes, each with its own page: day-by-day plan, fees, and what 
 Everything lives in `index.html`:
 
 - **Programme content** — the `PROGRAMMES` array in the `<script>` block. Each entry has the title, field, colour, fees, day-by-day schedule and outcomes.
+- **Cohort dates** — the `DATES` array. Edit it once and the homepage band, every programme's booking box and the FAQ all update.
 - **Booking contact** — the `CONTACT` object holds the email, phone and WhatsApp number used by the sidebar buttons and the footer.
 - **Colours** — the `--c-*` tokens at the top of the `<style>` block, one per discipline.
 

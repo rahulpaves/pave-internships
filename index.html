@@ -1,6 +1,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pave Internships UAE</title>
+<meta name="description" content="Short, supervised work-experience internships for school students in Dubai, Abu Dhabi and online. Real workplaces, professionals in the field, and a certificate on completion.">
+<meta name="theme-color" content="#0F73B8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pave Internships">
+<meta property="og:title" content="Pave Internships — Dubai, Abu Dhabi &amp; Online">
+<meta property="og:description" content="Short, supervised work-experience internships for school students. Real workplaces, professionals in the field, and a certificate on completion.">
+<meta property="og:url" content="https://rahulpaves.github.io/pave-internships/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F73B8'/%3E%3Ctext x='16' y='23.5' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
@@ -40,6 +49,7 @@
   --c-astro:#4A3E9C;
   --c-design:#96701A;
   --c-hosp:#7E2F44;
+  --c-law:#6B4A2F;
 
   --display:"Fraunces",Georgia,"Times New Roman",serif;
   --body:"DM Sans","Helvetica Neue",Arial,sans-serif;
@@ -82,6 +92,7 @@
     --c-astro:#A9A0F0;
     --c-design:#DBBD6A;
     --c-hosp:#DB93A6;
+    --c-law:#CDA985;
   }
 }
 :root[data-theme="dark"]{
@@ -117,6 +128,7 @@
   --c-astro:#A9A0F0;
   --c-design:#DBBD6A;
   --c-hosp:#DB93A6;
+  --c-law:#CDA985;
 }
 
 *,*::before,*::after{box-sizing:border-box;}
@@ -138,6 +150,12 @@ a{color:inherit;}
   *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
 }
 
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:100;
+  background:var(--brand);color:var(--on-brand);
+  padding:.7rem 1.1rem;border-radius:0 0 10px 0;font-weight:600;text-decoration:none;
+}
+.skip:focus{left:0;}
 .wrap{width:min(100% - 2.5rem,var(--w));margin-inline:auto;}
 .eyebrow{
   font-size:.75rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
@@ -309,6 +327,83 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
 .card-foot .len{color:var(--ink-3);}
 .card-foot .fee{font-weight:700;font-variant-numeric:tabular-nums;}
 
+/* ============ dates band ============ */
+.dates-band{
+  border-block:1px solid var(--line);
+  background:
+    linear-gradient(180deg, color-mix(in srgb,var(--sun) 9%,var(--surface)), var(--surface));
+}
+.dates-inner{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
+  gap:clamp(1.5rem,4vw,3.5rem);align-items:center;
+  padding-block:clamp(1.75rem,4vw,2.5rem);
+}
+@media (max-width:50rem){ .dates-inner{grid-template-columns:1fr;} }
+.dates-head h2{font-size:clamp(1.4rem,1.2rem + 1vw,1.9rem);line-height:1.15;margin-top:.5rem;}
+.dates-head p{color:var(--ink-2);margin:.6rem 0 0;font-size:.95rem;max-width:42ch;}
+.dates-list{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;}
+.dates-list li{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:.85rem 1.1rem;box-shadow:var(--shadow);
+}
+.dates-term{
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);flex:1 1 9rem;
+}
+.dates-year{color:var(--ink-3);opacity:.8;}
+.dates-slots{display:flex;flex-wrap:wrap;gap:.45rem;}
+.dates-slots b{
+  background:color-mix(in srgb,var(--sun) 20%,var(--surface));
+  border:1px solid color-mix(in srgb,var(--sun) 45%,var(--line));
+  border-radius:99px;padding:.32rem .8rem;
+  font-size:.92rem;font-weight:700;white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+
+/* dates inside the booking box */
+.apply-dates{margin:1.1rem 0 1.25rem;padding:.9rem 1rem;background:var(--surface-2);border-radius:var(--r);}
+.apply-dates .eyebrow{font-size:.68rem;margin-bottom:.5rem;}
+.apply-date{padding:.35rem 0;font-size:.88rem;}
+.apply-date + .apply-date{border-top:1px solid var(--line);margin-top:.35rem;}
+.apply-date .t{display:block;color:var(--ink-3);font-size:.78rem;}
+.apply-date .d{display:block;font-weight:700;font-variant-numeric:tabular-nums;margin-top:.1rem;}
+
+/* ============ compare table ============ */
+.compare{
+  margin-top:1.75rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-lg);box-shadow:var(--shadow);padding:0 1.25rem;
+}
+.compare summary{
+  cursor:pointer;list-style:none;padding:1.05rem 2rem 1.05rem 0;position:relative;
+  font-weight:600;font-size:1rem;
+}
+.compare summary::-webkit-details-marker{display:none;}
+.compare summary::after{
+  content:"";position:absolute;right:.25rem;top:1.4rem;width:.6rem;height:.6rem;
+  border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform .2s ease;
+}
+.compare[open] summary::after{transform:rotate(-135deg);}
+.table-scroll{overflow-x:auto;padding-bottom:.25rem;}
+.compare table{border-collapse:collapse;width:100%;font-size:.9rem;}
+.compare th,.compare td{
+  text-align:left;padding:.7rem .9rem .7rem 0;border-bottom:1px solid var(--line);
+  vertical-align:top;white-space:nowrap;
+}
+.compare thead th{
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  border-bottom:1.5px solid var(--ink-3);
+}
+.compare tbody th{font-weight:600;white-space:normal;min-width:14rem;}
+.compare tbody th a{color:var(--ink);text-decoration:none;}
+.compare tbody th a:hover{color:var(--brand);text-decoration:underline;}
+.compare td{color:var(--ink-2);}
+.compare .num{text-align:right;padding-right:0;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600;}
+.compare .num small{font-weight:400;color:var(--ink-3);}
+.compare tbody tr:hover td,.compare tbody tr:hover th{background:var(--tint,transparent);}
+.table-foot{color:var(--ink-3);font-size:.85rem;margin:.9rem 0 1.25rem;}
+
 /* ============ steps ============ */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.25rem;}
 .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.5rem 1.4rem;box-shadow:var(--shadow);}
@@ -471,9 +566,31 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
 }
 .foot-links a:hover,.foot-links button:hover{color:var(--brand);}
 
+@media print{
+  :root{--ground:#fff;--surface:#fff;--ink:#000;--ink-2:#333;--ink-3:#555;--line:#bbb;--shadow:none;--shadow-lift:none;}
+  .site-head,.nav,.skip,.hero-cta,.search-row,.chips,.modes,.pager,.foot-links,.no-results{display:none !important;}
+  .dates-band{background:#fff;border-block:1px solid #bbb;break-inside:avoid;}
+  .dates-list li,.dates-slots b{box-shadow:none;border:1px solid #bbb;background:#fff;}
+  body{background:#fff;font-size:11pt;}
+  .card,.step,.parents,.apply,.compare,.faq details{
+    box-shadow:none !important;border:1px solid #bbb;break-inside:avoid;
+  }
+  .card::after{display:none;}
+  .grid{display:block;}
+  .card{margin-bottom:.5rem;}
+  .compare[open] summary{display:none;}
+  .compare table{font-size:9pt;}
+  .d-body{display:block;}
+  .aside{margin-top:1.5rem;}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555;}
+  .site-foot{border-top:1px solid #bbb;}
+}
+
 .view{animation:rise .3s ease both;}
 @keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
 </style>
+
+<a class="skip" href="#programmes">Skip to programmes</a>
 
 <header class="site-head">
   <div class="wrap head-in">
@@ -483,8 +600,10 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
     </a>
     <nav class="nav">
       <button type="button" data-scroll="programmes">Programmes</button>
+      <button type="button" data-scroll="dates">Dates</button>
       <button type="button" data-scroll="how" class="hide-sm">How it works</button>
       <button type="button" data-scroll="parents" class="hide-sm">For parents</button>
+      <button type="button" data-scroll="schools" class="hide-sm">For schools</button>
       <button type="button" data-scroll="faq" class="hide-sm">FAQ</button>
     </nav>
   </div>
@@ -499,6 +618,7 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
       <a href="mailto:rahul@pavetheway.ai">rahul@pavetheway.ai</a>
       <a href="tel:+971568924365">+971 56 892 4365</a>
       <button type="button" data-scroll="parents">For parents</button>
+      <button type="button" data-scroll="schools">For schools</button>
       <button type="button" data-scroll="faq">FAQ</button>
     </div>
   </div>
@@ -514,6 +634,9 @@ const ICONS = {
   mind:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v4.5M12 16.5V21"/></svg>',
   bulb:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="10" r="5.5"/><path d="M9.5 17.5h5M10.5 20.5h3M12 2.5V1M4.5 10H3M21 10h-1.5M6.2 4.7 5.1 3.6M17.8 4.7l1.1-1.1"/></svg>',
   gear:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6 6.4 6.4M17.6 17.6l1.8 1.8M19.4 4.6 17.6 6.4M6.4 17.6l-1.8 1.8"/></svg>',
+  frame:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m5.5 16.5 4-5 3 3.6 2-2.6 4 4"/><circle cx="8.8" cy="8.6" r="1.3"/></svg>',
+  scales:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.6V20M7.5 20h9"/><path d="m12 6.6-6.6 1.9M12 6.6l6.6 1.9"/><path d="M5.4 8.5 2.9 14.2a2.5 2.5 0 0 0 5 0z"/><path d="M18.6 8.5 16.1 14.2a2.5 2.5 0 0 0 5 0z"/><circle cx="12" cy="4.8" r="1.4"/></svg>',
+  compass:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.6" r="1.9"/><path d="M13 6.2 17.6 20M11 6.2 6.4 20"/><path d="M9.2 13.5h5.6"/></svg>',
   tooth:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.2c-1.9 0-2.4 1-4.3 1S4 4.9 4 8.2c0 2.9 1.1 4.3 1.7 6.7.5 1.9.8 4.3 2.1 4.3 1.2 0 1.3-2.1 1.7-3.8.3-1.3.6-1.9 2.5-1.9s2.2.6 2.5 1.9c.4 1.7.5 3.8 1.7 3.8 1.3 0 1.6-2.4 2.1-4.3.6-2.4 1.7-3.8 1.7-6.7 0-3.3-1.8-3-3.7-3S13.9 4.2 12 4.2z"/></svg>',
   pulse:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S4.5 16 4.5 10.8a3.9 3.9 0 0 1 7.5-1.6 3.9 3.9 0 0 1 7.5 1.6C19.5 16 12 20.5 12 20.5z"/><path d="M6.6 11.6h2.2l1.3-2.3 1.9 4 1.3-2.5h3.4"/></svg>',
   drone:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.8" cy="6.5" r="2.6"/><circle cx="18.2" cy="6.5" r="2.6"/><circle cx="5.8" cy="17.5" r="2.6"/><circle cx="18.2" cy="17.5" r="2.6"/><rect x="9" y="9.8" width="6" height="4.4" rx="1.2"/><path d="M7.7 8.4 9.4 10.2M16.3 8.4 14.6 10.2M7.7 15.6 9.4 13.8M16.3 15.6 14.6 13.8"/></svg>',
@@ -1120,6 +1243,78 @@ const PROGRAMMES = [
     gainsLabel:"You leave with",
     gains:["A mini fashion collection","Certificate of Completion"],
     motto:"Turn creativity into fashion."
+  },
+  {
+    slug:"law",
+    title:"Law Internship Programme",
+    kicker:"Step into the world of law.",
+    field:"Law",
+    color:"var(--c-law)", icon:"scales",
+    blurb:"Legal systems, contract drafting and case analysis, with mentoring from practising lawyers.",
+    length:null, fee:"AED 2,000", vat:"+ VAT",
+    ages:null, location:"Dubai", mode:"In person", hours:null,
+    lede:"A practical introduction to the legal profession through expert-led sessions, interactive workshops, case discussions and career mentoring.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"Programme highlights",
+    experience:[
+      "Law in practice — legal practice, ethics, confidentiality and professional conduct",
+      "Legal systems — UAE, UK and US legal systems, courts, jurisdiction and arbitration",
+      "Corporate law — contract drafting, corporate documents and negotiation",
+      "Legal research — case analysis, legal research, opinions and legal writing",
+      "Career guidance — law firms, in-house careers, LLBs, qualifications and exams"
+    ],
+    gainsLabel:"What you\u2019ll gain",
+    gains:["Practical legal skills","Professional insight","Career guidance","Certificate of Completion"],
+    motto:"Learn. Analyse. Draft. Experience law."
+  },
+  {
+    slug:"architecture-3d-design",
+    title:"Architecture & 3D Design",
+    kicker:"Empowering minds through design and innovation.",
+    field:"Architecture & 3D Design",
+    color:"var(--c-design)", icon:"compass",
+    blurb:"Drafting in AutoCAD, modelling in SketchUp, and printing what you design.",
+    length:null, fee:"AED 1,750", vat:"+ 5% VAT",
+    ages:null, location:"Dubai", mode:"In person", hours:null,
+    lede:"A practical programme introducing architectural design, 2D drafting, 3D modelling and 3D printing using AutoCAD and SketchUp.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"Key highlights",
+    experience:[
+      "Architecture & spatial design",
+      "AutoCAD 2D floor plans",
+      "SketchUp 3D modelling",
+      "3D printing & prototyping",
+      "Creative & technical design thinking"
+    ],
+    suitableForLabel:"Career pathways",
+    suitableFor:["Architecture","Interior Design","Civil Engineering","Urban Planning","Industrial Design","Construction","Landscape Architecture","3D Visualisation"],
+    note:"<b>On completion:</b> every student receives a certificate.",
+    motto:"Design. Create. Visualise."
+  },
+  {
+    slug:"arts",
+    title:"Arts Virtual Internship",
+    kicker:"Create. Explore. Inspire.",
+    field:"Arts & Creative Industry",
+    color:"var(--c-design)", icon:"frame",
+    blurb:"Galleries, curation and the business of art, through virtual tours, workshops and group projects.",
+    length:"5 days", fee:"AED 1,400", vat:"+ 5% VAT",
+    ages:null, location:"Online", mode:"Online", hours:null,
+    lede:"Discover the exciting world of art and the creative industry through virtual tours, workshops, case studies and group projects.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you\u2019ll learn",
+    experience:[
+      "Gallery & exhibition operations",
+      "Curatorial practice & exhibition design",
+      "Art business, marketing & sales",
+      "Artistic analysis & creative thinking",
+      "Teamwork & professional skills",
+      "Portfolio development"
+    ],
+    suitableForLabel:"Career pathways",
+    suitableFor:["Fashion & Textile Design","Graphic Design","Architecture & Interior Design","Fine Arts","Film, Media & Animation","Landscape Design","Performing Arts","Product Design","Education & Art Therapy","Marketing & Advertising","Medical Illustration","UX/UI & Health Tech","3D Printing & Clinical Simulation","Neuro-Rehabilitation"],
+    note:"<b>On completion:</b> every student receives a certificate.",
+    motto:"Create. Explore. Inspire."
   }
 ];
 
@@ -1130,6 +1325,13 @@ PROGRAMMES.sort((a, b) => a.title.localeCompare(b.title, "en", {sensitivity: "ba
 PROGRAMMES.forEach(p => {
   if (p.mode === undefined) p.mode = p.location === "Online" ? "Online" : (p.location ? "In person" : null);
 });
+
+/* Upcoming cohort dates. Edit here and every place on the site updates. */
+const DATES = [
+  { term: "October Break", year: "2026", slots: ["12\u201316 October", "19\u201323 October"] },
+  { term: "Winter Break",  year: "2026", slots: ["14\u201331 December"] }
+];
+const NEXT_DATE = DATES[0].slots[0] + " " + DATES[0].year;
 
 /* Booking contact. Used by the sidebar buttons and the footer. */
 const CONTACT = {
@@ -1182,11 +1384,29 @@ function renderHome(){
           <a class="btn btn-ghost" href="mailto:rahul@pavetheway.ai?subject=Internship%20enquiry">Talk to us</a>
         </div>
         <div class="trust">
+          <span>Next cohort <b>${esc(NEXT_DATE)}</b></span>
           <span><b>${PROGRAMMES.length}</b> programmes</span>
           <span><b>Dubai</b>, <b>Abu Dhabi</b> &amp; <b>online</b></span>
           <span>Led by <b>working professionals</b></span>
           <span><b>Certificate</b> on completion</span>
         </div>
+      </div>
+    </section>
+
+    <section class="dates-band" id="dates">
+      <div class="wrap dates-inner">
+        <div class="dates-head">
+          <p class="eyebrow">Upcoming dates</p>
+          <h2>Cohorts run in the school breaks.</h2>
+          <p>Places are limited. Get in touch to confirm availability for the programme you want.</p>
+        </div>
+        <ul class="dates-list">
+          ${DATES.map(d => `
+            <li>
+              <span class="dates-term">${esc(d.term)} <span class="dates-year">${esc(d.year)}</span></span>
+              <span class="dates-slots">${d.slots.map(x => `<b>${esc(x)}</b>`).join("")}</span>
+            </li>`).join("")}
+        </ul>
       </div>
     </section>
 
@@ -1226,6 +1446,47 @@ function renderHome(){
             <h3>Nothing matches that yet.</h3>
             <p>Try a broader word &mdash; &ldquo;engineering&rdquo;, &ldquo;design&rdquo;, &ldquo;animals&rdquo; &mdash; switch the format back to All, or clear the search to see all ${PROGRAMMES.length} programmes.</p>
           </div>
+        </div>
+        <details class="compare">
+          <summary>Compare all ${PROGRAMMES.length} side by side</summary>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th scope="col">Programme</th><th scope="col">Field</th><th scope="col">Format</th><th scope="col">Where</th><th scope="col">Length</th><th scope="col" class="num">Fee</th></tr>
+              </thead>
+              <tbody>
+                ${PROGRAMMES.map(p => `
+                  <tr>
+                    <th scope="row"><a href="#/${p.slug}">${esc(p.title)}</a></th>
+                    <td>${esc(p.field)}</td>
+                    <td>${esc(p.mode || "—")}</td>
+                    <td>${esc(p.location || "—")}</td>
+                    <td>${esc(p.length || "Ask us")}</td>
+                    <td class="num">${p.fee ? `${esc(p.fee)} <small>${esc(p.vat)}</small>` : "On request"}</td>
+                  </tr>`).join("")}
+              </tbody>
+            </table>
+          </div>
+          <p class="table-foot">Fees are shown excluding VAT. Where a length is not listed it is confirmed at booking &mdash; ask us.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="band" id="schools">
+      <div class="wrap">
+        <div class="parents">
+          <div>
+            <p class="eyebrow">For schools &amp; counsellors</p>
+            <h2>Work experience your careers programme can point to.</h2>
+            <p>Every programme is short enough to fit a school break, structured enough to brief students on, and ends with evidence a student can talk about in an interview or personal statement.</p>
+            <p><a class="btn btn-primary" href="mailto:rahul@pavetheway.ai?subject=${encodeURIComponent("School enquiry — Pave Internships")}&body=${encodeURIComponent("Hi Rahul,\n\nI'm getting in touch from a school about the Pave internship programmes.\n\nSchool:\nMy role:\nYear group / number of students:\nProgrammes of interest:\n\nThank you,\n")}">Enquire for your school</a></p>
+          </div>
+          <ul class="checks">
+            <li>${TICK}<div><b>Group and cohort enquiries</b><span>Talk to us about bringing a group of students to a programme, or about dates that fit your school calendar.</span></div></li>
+            <li>${TICK}<div><b>Across the curriculum</b><span>${PROGRAMMES.length} programmes spanning medicine, engineering, law, business, psychology, technology and the creative industries &mdash; useful whichever pathway a student is weighing up.</span></div></li>
+            <li>${TICK}<div><b>Evidence for applications</b><span>Students finish with a signed certificate plus real output &mdash; a pitch, a proposal, a portfolio or a report.</span></div></li>
+            <li>${TICK}<div><b>One link to share</b><span>Send students and parents straight to a single programme &mdash; every one has its own web address.</span></div></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1289,7 +1550,9 @@ function renderHome(){
           <details><summary>Are the medical programmes hands-on with patients?</summary><p>No. Both are educational and observational only. Students learn how clinics, hospitals and patient care work and meet people in different healthcare roles, but no surgical, invasive or hands-on procedures are involved.</p></details>
           <details><summary>What is the difference between the two medical programmes?</summary><p>The Dubai internship is five days of supervised exposure to a clinical environment and the healthcare careers within it. The Abu Dhabi programme is a one-week hospital observation week in Rabdan, covering hospital operations, infection prevention, sterilization, diagnostic imaging, nursing, and medical records.</p></details>
           <details><summary>Are the online programmes live or self-paced?</summary><p>Use the <b>Online</b> filter above to see every programme that runs remotely. Contact the team to confirm the timetable and whether sessions are live or self-paced for the one you want.</p></details>
-          <details><summary>When do the next cohorts start?</summary><p>Cohorts run on fixed dates through the year and places are limited. Get in touch with the Pave team for the next available start date for the programme you want.</p></details>
+          <details><summary>Can a school book a group?</summary><p>Yes &mdash; get in touch about bringing a group of students to a programme, or about dates that fit your school calendar. Email <a href="mailto:rahul@pavetheway.ai">rahul@pavetheway.ai</a> or WhatsApp <a href="https://wa.me/971568924365" target="_blank" rel="noopener">+971 56 892 4365</a>.</p></details>
+          <details><summary>How do I share one programme with a student or parent?</summary><p>Every programme has its own web address. Open the one you want and copy the link from the address bar &mdash; it opens straight on that programme.</p></details>
+          <details><summary>When do the next cohorts run?</summary><p>${DATES.map(d => `<b>${esc(d.term)} ${esc(d.year)}</b> &mdash; ${d.slots.map(x => esc(x)).join(" and ")}`).join("<br>")}<br><br>Places are limited, so get in touch to confirm availability for the programme you want.</p></details>
         </div>
       </div>
     </section>
@@ -1430,6 +1693,14 @@ function renderDetail(p, i){
             ${p.length ? `<li><span class="k">Length</span><span class="v">${esc(p.length)}${p.hours ? `<small>${esc(p.hours)}</small>` : ""}</span></li>` : ""}
             <li><span class="k">Fee</span><span class="v">${p.fee ? `${esc(p.fee)}<small>${esc(p.vat)}</small>` : "On request"}</span></li>
           </ul>
+          <div class="apply-dates">
+            <p class="eyebrow">Upcoming dates</p>
+            ${DATES.map(d => `
+              <div class="apply-date">
+                <span class="t">${esc(d.term)} ${esc(d.year)}</span>
+                <span class="d">${d.slots.map(x => esc(x)).join(" &middot; ")}</span>
+              </div>`).join("")}
+          </div>
           <div class="apply-actions">
             <a class="btn btn-primary" href="${mailtoFor(p)}">Email about dates</a>
             <a class="btn btn-ghost" href="${waFor(p)}" target="_blank" rel="noopener">WhatsApp us</a>
