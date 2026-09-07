@@ -37,6 +37,9 @@
   --c-mkt:#BE3D84;
   --c-film:#CF4F2E;
   --c-cyber:#3E5266;
+  --c-astro:#4A3E9C;
+  --c-design:#96701A;
+  --c-hosp:#7E2F44;
 
   --display:"Fraunces",Georgia,"Times New Roman",serif;
   --body:"DM Sans","Helvetica Neue",Arial,sans-serif;
@@ -76,6 +79,9 @@
     --c-mkt:#F094C6;
     --c-film:#F2916F;
     --c-cyber:#A9BDD1;
+    --c-astro:#A9A0F0;
+    --c-design:#DBBD6A;
+    --c-hosp:#DB93A6;
   }
 }
 :root[data-theme="dark"]{
@@ -108,6 +114,9 @@
   --c-mkt:#F094C6;
   --c-film:#F2916F;
   --c-cyber:#A9BDD1;
+  --c-astro:#A9A0F0;
+  --c-design:#DBBD6A;
+  --c-hosp:#DB93A6;
 }
 
 *,*::before,*::after{box-sizing:border-box;}
@@ -233,7 +242,17 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
 }
 .search .clear:hover{background:var(--brand-soft);color:var(--ink);}
 .search.has-value .clear{display:grid;}
+.modes{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:99px;padding:.25rem;gap:.15rem;}
+.modes button{
+  font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;
+  background:none;border:0;color:var(--ink-2);
+  padding:.4rem .95rem;border-radius:99px;white-space:nowrap;
+  transition:background-color .16s,color .16s,box-shadow .16s;
+}
+.modes button:hover{color:var(--ink);}
+.modes button.is-on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);}
 .result-count{font-size:.92rem;color:var(--ink-3);}
+.result-count .aside-note{display:block;font-size:.85rem;}
 .result-count b{color:var(--ink);font-weight:700;}
 .chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.75rem;}
 .chips button{
@@ -491,6 +510,17 @@ const ICONS = {
   mind:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v4.5M12 16.5V21"/></svg>',
   bulb:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="10" r="5.5"/><path d="M9.5 17.5h5M10.5 20.5h3M12 2.5V1M4.5 10H3M21 10h-1.5M6.2 4.7 5.1 3.6M17.8 4.7l1.1-1.1"/></svg>',
   gear:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6 6.4 6.4M17.6 17.6l1.8 1.8M19.4 4.6 17.6 6.4M6.4 17.6l-1.8 1.8"/></svg>',
+  tooth:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.2c-1.9 0-2.4 1-4.3 1S4 4.9 4 8.2c0 2.9 1.1 4.3 1.7 6.7.5 1.9.8 4.3 2.1 4.3 1.2 0 1.3-2.1 1.7-3.8.3-1.3.6-1.9 2.5-1.9s2.2.6 2.5 1.9c.4 1.7.5 3.8 1.7 3.8 1.3 0 1.6-2.4 2.1-4.3.6-2.4 1.7-3.8 1.7-6.7 0-3.3-1.8-3-3.7-3S13.9 4.2 12 4.2z"/></svg>',
+  pulse:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S4.5 16 4.5 10.8a3.9 3.9 0 0 1 7.5-1.6 3.9 3.9 0 0 1 7.5 1.6C19.5 16 12 20.5 12 20.5z"/><path d="M6.6 11.6h2.2l1.3-2.3 1.9 4 1.3-2.5h3.4"/></svg>',
+  drone:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.8" cy="6.5" r="2.6"/><circle cx="18.2" cy="6.5" r="2.6"/><circle cx="5.8" cy="17.5" r="2.6"/><circle cx="18.2" cy="17.5" r="2.6"/><rect x="9" y="9.8" width="6" height="4.4" rx="1.2"/><path d="M7.7 8.4 9.4 10.2M16.3 8.4 14.6 10.2M7.7 15.6 9.4 13.8M16.3 15.6 14.6 13.8"/></svg>',
+  planet:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.6"/><ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(-22 12 12)"/></svg>',
+  clapper:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9.2" width="18" height="10.8" rx="2"/><path d="M3.4 9.2 20.6 6.4"/><path d="m7.6 8.6-.9-3.1M12.6 7.8l-.9-3.1M17.6 7l-.9-3.1"/></svg>',
+  palette:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2a8.8 8.8 0 1 0 0 17.6c1.2 0 1.9-.8 1.9-1.7 0-1.6-1.4-1.8-1.4-2.9 0-.8.7-1.4 1.6-1.4h1.6a5.2 5.2 0 0 0 5.1-5.2c0-3.7-4-6.4-8.8-6.4z"/><circle cx="7.6" cy="11.2" r="1"/><circle cx="10.2" cy="7.6" r="1"/><circle cx="14.6" cy="7.6" r="1"/></svg>',
+  people:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><path d="M16.4 5.4a3.2 3.2 0 0 1 0 5.9"/><path d="M18 14.4a6.2 6.2 0 0 1 3.2 5.6"/></svg>',
+  megaphone:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.4v3.2a2 2 0 0 0 2 2h1.4L18 20V4L7.4 8.4H6a2 2 0 0 0-2 2z"/><path d="M8.2 15.8V20.2M20.6 9.6a3.4 3.4 0 0 1 0 4.8"/></svg>',
+  plan:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 13h7V4M10 13h11M14.5 13v7"/></svg>',
+  bell:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18h17"/><path d="M5.4 18a6.6 6.6 0 0 1 13.2 0"/><path d="M12 11.4V9.2"/><circle cx="12" cy="7.6" r="1.5"/></svg>',
+  hanger:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8.4V7.2a2.1 2.1 0 1 1 2.1-2.1"/><path d="M12 8.6 3.4 15.3a1.6 1.6 0 0 0 1 2.9h15.2a1.6 1.6 0 0 0 1-2.9L12 8.6z"/></svg>',
   paw:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="16" rx="4.5" ry="3.8"/><ellipse cx="6" cy="10.5" rx="2.1" ry="2.6"/><ellipse cx="18" cy="10.5" rx="2.1" ry="2.6"/><ellipse cx="9.5" cy="6.5" rx="2.1" ry="2.6"/><ellipse cx="14.5" cy="6.5" rx="2.1" ry="2.6"/></svg>',
   tag:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5 12.5 3.5H20.5v8L11.5 20.5z"/><circle cx="16.2" cy="7.8" r="1.4"/></svg>',
   film:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M8.5 5v14M15.5 5v14"/><path d="M3 9.5h5.5M3 14.5h5.5M15.5 9.5H21M15.5 14.5H21"/></svg>',
@@ -829,19 +859,283 @@ const PROGRAMMES = [
     ],
     suitableForLabel:"Career pathways",
     suitableFor:["Video Editing","Motion Graphics","Film & TV","Digital Media","Multimedia Arts","Cinematography","Sound Design","Creative Media"]
+  },
+  {
+    slug:"dentistry",
+    title:"Dentistry Observership",
+    kicker:"See dentistry. Experience the clinic. Discover your future.",
+    field:"Dentistry",
+    color:"var(--c-med)", icon:"tooth",
+    blurb:"A first-hand look inside a working dental practice, guided by licensed dentists.",
+    length:null, fee:"AED 1,500", vat:"+ 5% VAT",
+    ages:null, location:null, mode:"In person", hours:null,
+    lede:"Curious about a career in dentistry or healthcare? Go beyond the classroom and get a first-hand glimpse into the world of professional dental practice under the guidance of licensed dentists.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll experience",
+    experience:[
+      "Explore the dental clinic — how a professional practice operates and the roles within the dental team",
+      "Observe clinical practice — basic dental procedures, instruments, patient care and clinical workflows",
+      "Learn infection control — professional hygiene, sterilization and infection-control practices",
+      "Meet the dental team — the responsibilities of dentists and the wider clinic team"
+    ],
+    notice:"Observational only. Students watch and learn alongside licensed dentists; no procedures are performed by students."
+  },
+  {
+    slug:"first-aid",
+    title:"First Aid, CPR & AED",
+    kicker:"Be prepared. Stay calm. Make a difference.",
+    field:"Emergency Response",
+    color:"var(--c-med)", icon:"pulse",
+    blurb:"A hands-on medical workshop in emergency response — CPR, defibrillator use, choking and first aid.",
+    length:null, fee:"AED 800", vat:"+ 5% VAT",
+    ages:null, location:null, mode:"In person", hours:null,
+    lede:"An interactive, hands-on medical workshop designed to equip students with essential emergency response and first-aid skills.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll learn",
+    experience:[
+      "Recognize emergencies — know when and how to help",
+      "Respond with confidence — call for help and stay calm under pressure",
+      "Perform CPR — adult chest compressions and rescue breaths",
+      "Use an AED — safe and correct defibrillator operation",
+      "Help a choking person — essential choking response techniques",
+      "Basic first aid — respond to common injuries and illnesses"
+    ],
+    note:"<b>Delivery format:</b> in person, instructor-led, interactive and hands-on.",
+    gainsLabel:"You leave with",
+    gains:["Certificate of Completion"],
+    motto:"Learn. Respond. Save a life."
+  },
+  {
+    slug:"drone-engineering",
+    title:"Drone Engineering",
+    kicker:"Hands-on. Industry-focused. Career-ready.",
+    field:"Drone Engineering",
+    color:"var(--c-aero)", icon:"drone",
+    blurb:"Drone design, flight operations, simulation and remote sensing through practical projects.",
+    length:null, fee:"AED 2,500", vat:"+ 5% VAT",
+    ages:null, location:"Online", mode:"Online", hours:null,
+    lede:"Take your first step into the world of drone technology, aerial robotics and engineering innovation. Explore drone design, flight operations, engineering analysis, simulations and remote sensing through practical learning experiences.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll explore",
+    experience:[
+      "Drone flight & aerial robotics",
+      "Drone design & simulation",
+      "Industrial & commercial applications",
+      "Drone components & performance analysis",
+      "Remote sensing & sensor evaluation"
+    ],
+    suitableForLabel:"Career pathways",
+    suitableFor:["Aerospace Engineering","Mechanical Engineering","Mechatronics","Electrical & Electronics Engineering","Robotics & Automation","Computer Engineering","Aeronautical Engineering","Data Science"],
+    note:"<b>On completion:</b> every student receives a certificate.",
+    motto:"Build skills. Explore drones. Shape the future."
+  },
+  {
+    slug:"astronomy",
+    title:"Astronomy Internship",
+    kicker:"Explore the universe. Capture the cosmos.",
+    field:"Astronomy",
+    color:"var(--c-astro)", icon:"planet",
+    blurb:"Stars, telescopes and astrophotography, through observation and guided creative projects.",
+    length:null, fee:"AED 1,200", vat:"+ 5% VAT",
+    ages:null, location:"Online", mode:"Online", hours:null,
+    lede:"Step into the fascinating world of astronomy and astrophotography through observation, creative projects and guided hands-on activities.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll explore",
+    experience:[
+      "Astronomy fundamentals — stars, planets, galaxies and the universe",
+      "Telescopes & astrophotography — imaging tools for capturing celestial objects",
+      "Night sky observation — identify constellations and track celestial objects",
+      "Creative astronomy — astronomy-inspired drawings, stories and image captions",
+      "Observation & analysis — analytical skills built through guided projects"
+    ],
+    suitableForLabel:"Career pathways",
+    suitableFor:["Astronomy","Astrophysics"],
+    motto:"Explore. Capture. Create. Discover."
+  },
+  {
+    slug:"digital-filmmaking",
+    title:"Digital Filmmaking",
+    kicker:"Script. Shoot. Edit. Create.",
+    field:"Film & Media",
+    color:"var(--c-film)", icon:"clapper",
+    blurb:"The complete filmmaking process, ending in your own short film.",
+    length:null, fee:"AED 1,500", vat:"+ 5% VAT",
+    ages:null, location:"Online", mode:"Online", hours:null,
+    lede:"Dive into the complete filmmaking process — from scriptwriting and directing to cinematography, editing, sound design and post-production. Gain practical experience using professional filmmaking tools and techniques to create your own short film.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll master",
+    experience:[
+      "Scriptwriting & storyboarding — develop stories and adapt screenplays",
+      "Production & directing — plan shoots, casting and locations",
+      "Cinematography — visual storytelling and camera technique",
+      "Editing & sequencing — turn footage into compelling narratives",
+      "VFX & colour grading — finish your film with professional techniques",
+      "Sound & dubbing — audio post-production"
+    ],
+    gainsLabel:"You leave with",
+    gains:["Your own short film","Practical experience with professional filmmaking tools"]
+  },
+  {
+    slug:"graphic-design",
+    title:"Graphic Design",
+    kicker:"Design. Create. Inspire.",
+    field:"Design",
+    color:"var(--c-design)", icon:"palette",
+    blurb:"Photoshop, Illustrator and InDesign, taught through real, task-based design briefs.",
+    length:null, fee:"AED 1,500", vat:"+ 5% VAT",
+    ages:null, location:"Online", mode:"Online", hours:null,
+    lede:"Build practical graphic design skills through real-world, task-based projects. Learn to create professional-quality designs using industry-standard Adobe tools while developing your creative thinking and visual communication skills.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll master",
+    experience:[
+      "Adobe creative tools — Photoshop, Illustrator & InDesign",
+      "Colour & layout — colour theory, composition and visual balance",
+      "Creative problem-solving — logical and creative approaches to design",
+      "Digital & print design — professional graphics for multiple platforms",
+      "Portfolio development — a diverse portfolio showcasing your work"
+    ],
+    gainsLabel:"You leave with",
+    gains:["A portfolio of finished design work","Working knowledge of industry-standard Adobe tools"]
+  },
+  {
+    slug:"human-resources",
+    title:"Human Resources Internship",
+    kicker:"Recruit. Develop. Lead.",
+    field:"Human Resources",
+    color:"var(--c-biz)", icon:"people",
+    blurb:"Recruitment, onboarding, documentation and the digital tools real HR teams run on.",
+    length:null, fee:"AED 800", vat:"+ 5% VAT",
+    ages:null, location:"Online", mode:"Online", hours:null,
+    lede:"Gain practical HR experience in recruitment, onboarding, employee communication, documentation and digital HR workflows.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"Key learning areas",
+    experience:[
+      "Recruitment & onboarding",
+      "Job descriptions & candidate screening",
+      "HR documentation & onboarding templates",
+      "Employee communication",
+      "Digital HR workflows using ClickUp or similar tools"
+    ],
+    suitableForLabel:"Career pathways",
+    suitableFor:["Human Resource Management","Business Administration","Labour & Employment Studies","Organisational Leadership","Business Management","Entrepreneurship","Industrial Relations","Talent Management","Psychology"],
+    note:"<b>On completion:</b> every student receives a certificate.",
+    motto:"Build HR skills. Lead the future."
+  },
+  {
+    slug:"pr-luxury-branding",
+    title:"PR, Communications & Luxury Brand Management",
+    kicker:"Discover. Create. Influence.",
+    field:"PR & Luxury Branding",
+    color:"var(--c-mkt)", icon:"megaphone",
+    blurb:"Luxury branding, media strategy and personal branding, ending in your own campaign.",
+    length:null, fee:"AED 1,750", vat:"+ VAT",
+    ages:null, location:null, mode:null, hours:null,
+    lede:"Step into the exciting world of PR, luxury branding, media strategy and personal branding through practical activities, creative workshops and real-world case studies.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll learn",
+    experience:[
+      "PR & communications — brand image, storytelling and reputation",
+      "Luxury branding — brand positioning and consumer psychology",
+      "Media & PR strategy — campaign planning and audience engagement",
+      "Digital PR — social media and influencer marketing",
+      "Personal branding — professional identity and networking",
+      "Campaign creation — develop and present your own campaign"
+    ],
+    gainsLabel:"Bonus experience",
+    gains:["Portfolio guidance","Mentorship","Industry insights","Networking skills","Presentation & confidence coaching"]
+  },
+  {
+    slug:"interior-design",
+    title:"Interior Design",
+    kicker:"Design. Visualize. Create.",
+    field:"Interior Design",
+    color:"var(--c-design)", icon:"plan",
+    blurb:"Space planning with AutoCAD and 3ds Max, from first concept to a client-ready presentation.",
+    length:null, fee:"AED 1,750", vat:"+ 5% VAT",
+    ages:null, location:null, mode:null, hours:null,
+    lede:"Transform spaces into functional, beautiful and inspiring environments through practical interior design projects and industry-standard tools.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll learn",
+    experience:[
+      "Space planning — interior design principles, layout and functionality",
+      "AutoCAD — professional 2D drafting skills",
+      "3ds Max — realistic 3D interior models and renders",
+      "Design concepts — balancing aesthetics, ergonomics and functionality",
+      "Professional presentation — client-ready concepts",
+      "The design process — from concept to execution"
+    ],
+    suitableForLabel:"Career pathways",
+    suitableFor:["Interior Design","Interior Architecture","Architecture & Design","Environmental Design","Industrial Design","Urban Design","Visual Communication Design","Landscape Architecture"]
+  },
+  {
+    slug:"hospitality",
+    title:"Introduction to Hospitality",
+    kicker:"Experience. Explore. Discover.",
+    field:"Hospitality",
+    color:"var(--c-hosp)", icon:"bell",
+    blurb:"An on-site week inside a working hotel — front office, food & beverage and housekeeping.",
+    length:null, fee:"AED 1,750", vat:"+ VAT",
+    ages:null, location:null, mode:"In person", hours:null,
+    lede:"Step inside the world of hospitality and discover how a real hotel operates through an on-site, interactive career experience.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"What you’ll explore",
+    experience:[
+      "Front office — guest services, reservations and concierge",
+      "Food & beverage — restaurant service, table setup and kitchen operations",
+      "Housekeeping — room standards, quality control and hotel operations",
+      "Hotel operations & department observation",
+      "Guest service & professional etiquette",
+      "Interactive activities & role plays",
+      "Communication, teamwork & problem-solving"
+    ],
+    gainsLabel:"Takeaways",
+    gains:["Certificate of Completion","An experience report & career guide","An observation workbook"],
+    motto:"Step into hospitality. Discover your future."
+  },
+  {
+    slug:"fashion-design",
+    title:"Fashion Design Internship",
+    kicker:"Create. Design. Style.",
+    field:"Fashion Design",
+    color:"var(--c-design)", icon:"hanger",
+    blurb:"From concept to collection — sketching, fabrics, styling and a mini collection of your own.",
+    length:null, fee:"AED 2,000", vat:"+ VAT",
+    ages:null, location:null, mode:null, hours:null,
+    lede:"A hands-on introduction to the world of fashion — from concept to collection.",
+    scheduleLabel:null, schedule:[],
+    experienceLabel:"Students will explore",
+    experience:[
+      "Fashion sketching & design",
+      "Fabrics & sourcing",
+      "Colours, silhouettes & styling",
+      "Basic garment construction",
+      "Boutique & client experience",
+      "Visual merchandising"
+    ],
+    note:"<b>Final project:</b> create and present a mini fashion collection with sketches, a mood board, fabric ideas and a styling concept.",
+    gainsLabel:"You leave with",
+    gains:["A mini fashion collection","Certificate of Completion"],
+    motto:"Turn creativity into fashion."
   }
 ];
 
 /* Display order on the index. Edit this to re-shuffle the cards. */
 const ORDER = [
   "it-ai-product","cybersecurity",
-  "medical","medical-abu-dhabi","veterinary",
-  "aerospace-engineering","pathways-to-aerospace","mechanical-engineering",
+  "medical","medical-abu-dhabi","dentistry","first-aid","veterinary",
+  "aerospace-engineering","pathways-to-aerospace","drone-engineering","mechanical-engineering",
+  "astronomy",
   "psychology","psychology-virtual",
-  "micro-start-ups","fmcg-branding",
-  "sports-management","video-editing"
+  "micro-start-ups","human-resources","fmcg-branding","pr-luxury-branding",
+  "sports-management","hospitality",
+  "video-editing","digital-filmmaking","graphic-design","interior-design","fashion-design"
 ];
 PROGRAMMES.sort((a,b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug));
+
+/* Older entries predate the mode field, so derive it from the location. */
+PROGRAMMES.forEach(p => {
+  if (p.mode === undefined) p.mode = p.location === "Online" ? "Online" : (p.location ? "In person" : null);
+});
 
 /* Set CONTACT to a mailto:, https:// or wa.me link to turn the sidebar
    button into a live "Ask about dates" call to action. */
@@ -856,15 +1150,15 @@ function renderHome(){
     p.title, p.field, p.blurb, p.kicker || "", p.lede, p.motto || "",
     ...p.schedule.map(d => d.title + " " + (d.text || "")),
     ...(p.gains || []), ...(p.experience || []), ...(p.suitableFor || []),
-    p.location || "", p.venue || ""
+    p.location || "", p.venue || "", p.mode || ""
   ].join(" ").toLowerCase();
 
   const cards = PROGRAMMES.map(p => `
-    <a class="card" href="#/${p.slug}" style="--c:${p.color}" data-search="${esc(haystack(p))}">
+    <a class="card" href="#/${p.slug}" style="--c:${p.color}" data-search="${esc(haystack(p))}" data-mode="${esc(p.mode || "")}">
       <span class="card-ico">${ICONS[p.icon]}</span>
       <span class="card-top">
         <span class="card-field">${esc(p.field)}</span>
-        <span class="card-city">${p.location ? esc(p.location) : ""}</span>
+        <span class="card-city">${esc(p.location || p.mode || "")}</span>
       </span>
       <h3>${esc(p.title)}</h3>
       <p>${esc(p.blurb)}</p>
@@ -907,6 +1201,11 @@ function renderHome(){
             <input id="search" type="search" autocomplete="off" placeholder="Search programmes, skills or careers…" aria-label="Search internship programmes">
             <button type="button" class="clear" id="search-clear" aria-label="Clear search">&times;</button>
           </div>
+          <div class="modes" id="modes-group" role="group" aria-label="Filter by format">
+            <button type="button" data-mode="all" class="is-on">All</button>
+            <button type="button" data-mode="In person">In person</button>
+            <button type="button" data-mode="Online">Online</button>
+          </div>
           <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
         </div>
         <div class="chips" id="chips">
@@ -919,12 +1218,11 @@ function renderHome(){
           <button type="button" data-term="certificate">Certificate</button>
           <button type="button" data-term="Dubai">Dubai</button>
           <button type="button" data-term="Abu Dhabi">Abu Dhabi</button>
-          <button type="button" data-term="Online">Online</button>
         </div>
         <div class="grid" id="grid">${cards}
           <div class="no-results" id="no-results" hidden>
             <h3>Nothing matches that yet.</h3>
-            <p>Try a broader word &mdash; &ldquo;engineering&rdquo;, &ldquo;design&rdquo;, &ldquo;animals&rdquo; &mdash; or clear the search to see all ${PROGRAMMES.length} programmes.</p>
+            <p>Try a broader word &mdash; &ldquo;engineering&rdquo;, &ldquo;design&rdquo;, &ldquo;animals&rdquo; &mdash; switch the format back to All, or clear the search to see all ${PROGRAMMES.length} programmes.</p>
           </div>
         </div>
       </div>
@@ -969,7 +1267,7 @@ function renderHome(){
             <li>${TICK}<div><b>Age-appropriate by design</b><span>The Dubai programmes are built specifically for 14&ndash;17 year olds. Both medical programmes are observational only &mdash; no clinical procedures.</span></div></li>
             <li>${TICK}<div><b>Small cohorts, fixed dates</b><span>Places are limited so every student gets real time with the professionals leading the week.</span></div></li>
             <li>${TICK}<div><b>Something to show for it</b><span>A signed certificate of completion, plus finished work students can talk about in interviews and applications.</span></div></li>
-            <li>${TICK}<div><b>Clear pricing</b><span>AED 800&ndash;2,000 per programme, with the online programmes at the lower end. Fees are quoted excluding VAT.</span></div></li>
+            <li>${TICK}<div><b>Clear pricing</b><span>AED 800&ndash;2,500 per programme. Fees are quoted excluding VAT.</span></div></li>
           </ul>
         </div>
       </div>
@@ -982,13 +1280,13 @@ function renderHome(){
           <h2>Before you book.</h2>
         </div>
         <div class="faq">
-          <details><summary>Who are these programmes for?</summary><p>The Dubai programmes are for students aged 14 to 17, and no prior experience is required &mdash; each one starts from the fundamentals and builds up over the week. The Abu Dhabi hospital week is aimed at students considering a healthcare degree; contact the team to confirm eligibility.</p></details>
-          <details><summary>How long is each internship?</summary><p>Most run over five days. The IT, AI &amp; Product Development programme runs over four days totalling 16 hours, and Sports Management totals 15 hours across its five days. The engineering programmes run 10 AM to 3 PM on site. A few of the online programmes have their schedule confirmed at booking &mdash; their pages leave the length blank rather than guess.</p></details>
-          <details><summary>What does it cost?</summary><p>Between AED 800 and AED 2,000 depending on the programme, quoted excluding VAT. The online programmes are the most affordable. The exact fee for each one is listed on its page &mdash; and where a fee is still being confirmed, the page says so.</p></details>
+          <details><summary>Who are these programmes for?</summary><p>School and pre-university students, and no prior experience is required &mdash; each programme starts from the fundamentals. Where a programme publishes an age range it is shown on its page; most of the on-site Dubai programmes are built for 14 to 17 year olds. For the others, contact the team to confirm eligibility.</p></details>
+          <details><summary>How long is each internship?</summary><p>The on-site programmes generally run over five days. The IT, AI &amp; Product Development programme runs over four days totalling 16 hours, and Sports Management totals 15 hours across its five days. The engineering programmes run 10 AM to 3 PM on site. Several programmes have their schedule confirmed at booking &mdash; where that is the case the page leaves the length out rather than guess, so ask the team.</p></details>
+          <details><summary>What does it cost?</summary><p>Between AED 800 and AED 2,500 depending on the programme, quoted excluding VAT. The exact fee for each one is listed on its page &mdash; and where a fee is still being confirmed, the page says so.</p></details>
           <details><summary>Does my child get a certificate?</summary><p>Yes &mdash; every programme finishes with a signed certificate of completion.</p></details>
           <details><summary>Are the medical programmes hands-on with patients?</summary><p>No. Both are educational and observational only. Students learn how clinics, hospitals and patient care work and meet people in different healthcare roles, but no surgical, invasive or hands-on procedures are involved.</p></details>
           <details><summary>What is the difference between the two medical programmes?</summary><p>The Dubai internship is five days of supervised exposure to a clinical environment and the healthcare careers within it. The Abu Dhabi programme is a one-week hospital observation week in Rabdan, covering hospital operations, infection prevention, sterilization, diagnostic imaging, nursing, and medical records.</p></details>
-          <details><summary>Are the online programmes live or self-paced?</summary><p>Contact the team to confirm the format and timetable for the online programmes &mdash; Cybersecurity, Video Editing, and the Psychology Virtual Internship.</p></details>
+          <details><summary>Are the online programmes live or self-paced?</summary><p>Use the <b>Online</b> filter above to see every programme that runs remotely. Contact the team to confirm the timetable and whether sessions are live or self-paced for the one you want.</p></details>
           <details><summary>When do the next cohorts start?</summary><p>Cohorts run on fixed dates through the year and places are limited. Get in touch with the Pave team for the next available start date for the programme you want.</p></details>
         </div>
       </div>
@@ -1007,20 +1305,43 @@ function wireSearch(){
   const cards = [...document.querySelectorAll(".card")];
   if (!input) return;
 
+  const modes = document.getElementById("modes-group");
+  let mode = "all";
+
   const apply = () => {
     const q = input.value.trim().toLowerCase();
     box.classList.toggle("has-value", q.length > 0);
-    let shown = 0;
+    let shown = 0, unknownFormat = 0;
     cards.forEach(c => {
-      const hit = !q || c.dataset.search.includes(q);
+      const matchesQuery = !q || c.dataset.search.includes(q);
+      const matchesMode  = mode === "all" || c.dataset.mode === mode;
+      if (matchesQuery && !c.dataset.mode && mode !== "all") unknownFormat++;
+      const hit = matchesQuery && matchesMode;
       c.hidden = !hit;
       if (hit) shown++;
     });
     empty.hidden = shown > 0;
-    count.innerHTML = q
-      ? `<b>${shown}</b> of ${cards.length} programmes match &ldquo;${esc(input.value.trim())}&rdquo;`
-      : `Showing all <b>${cards.length}</b> programmes`;
+
+    const scope = mode === "all" ? "programmes"
+      : mode === "Online" ? "online programmes" : "in-person programmes";
+    let text = q
+      ? `<b>${shown}</b> ${scope} match &ldquo;${esc(input.value.trim())}&rdquo;`
+      : (mode === "all"
+          ? `Showing all <b>${cards.length}</b> programmes`
+          : `<b>${shown}</b> ${scope}`);
+    if (unknownFormat) {
+      text += `<span class="aside-note">${unknownFormat} more ${unknownFormat === 1 ? "programme has" : "programmes have"} no format confirmed yet &mdash; see All.</span>`;
+    }
+    count.innerHTML = text;
   };
+
+  modes.addEventListener("click", e => {
+    const b = e.target.closest("button[data-mode]");
+    if (!b) return;
+    mode = b.dataset.mode;
+    modes.querySelectorAll("button").forEach(x => x.classList.toggle("is-on", x === b));
+    apply();
+  });
 
   input.addEventListener("input", apply);
   input.addEventListener("keydown", e => { if (e.key === "Escape") { input.value = ""; apply(); } });
@@ -1067,7 +1388,8 @@ function renderDetail(p, i){
         <h1>${esc(p.title)}</h1>
         ${p.kicker ? `<p class="d-kicker">${esc(p.kicker)}</p>` : ""}
         <div class="pills">
-          ${p.location ? `<span><b>${esc(p.venue || p.location)}</b></span>` : ""}
+          ${p.location ? `<span><b>${esc(p.venue || p.location)}</b></span>`
+            : p.mode ? `<span><b>${esc(p.mode)}</b></span>` : ""}
           ${p.ages ? `<span>Ages <b>${esc(p.ages)}</b></span>` : ""}
           ${p.length ? `<span><b>${esc(p.length)}</b></span>` : ""}
           ${p.hours ? `<span><b>${esc(p.hours)}</b></span>` : ""}
@@ -1100,7 +1422,8 @@ function renderDetail(p, i){
         <div class="apply">
           <h2>Reserve a place</h2>
           <ul class="facts">
-            ${p.location ? `<li><span class="k">Location</span><span class="v">${esc(p.location)}${p.venue ? `<small>${esc(p.venue)}</small>` : ""}</span></li>` : ""}
+            ${p.location ? `<li><span class="k">Location</span><span class="v">${esc(p.location)}${p.venue ? `<small>${esc(p.venue)}</small>` : ""}</span></li>`
+              : p.mode ? `<li><span class="k">Format</span><span class="v">${esc(p.mode)}</span></li>` : ""}
             ${p.ages ? `<li><span class="k">Ages</span><span class="v">${esc(p.ages)}</span></li>` : ""}
             ${p.length ? `<li><span class="k">Length</span><span class="v">${esc(p.length)}${p.hours ? `<small>${esc(p.hours)}</small>` : ""}</span></li>` : ""}
             <li><span class="k">Fee</span><span class="v">${p.fee ? `${esc(p.fee)}<small>${esc(p.vat)}</small>` : "On request"}</span></li>
