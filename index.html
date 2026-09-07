@@ -444,11 +444,14 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
 .facts dt,.facts .k{color:var(--ink-3);}
 .facts .v{font-weight:700;text-align:right;font-variant-numeric:tabular-nums;}
 .facts .v small{display:block;font-weight:400;color:var(--ink-3);font-size:.78rem;}
+.apply-actions{display:grid;gap:.55rem;}
 .apply .btn{width:100%;}
-.contact-stub{
-  border:1.5px dashed var(--line);border-radius:99px;padding:.72rem 1rem;
-  text-align:center;font-weight:600;font-size:.95rem;color:var(--ink-2);
+.apply-direct{
+  margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--line);
+  font-size:.9rem;line-height:1.7;
 }
+.apply-direct a{color:var(--brand);font-weight:600;text-decoration:none;}
+.apply-direct a:hover{text-decoration:underline;}
 
 .pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);}
 .pager a{text-decoration:none;max-width:17rem;}
@@ -493,7 +496,8 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
   <div class="wrap foot-in">
     <p>Pave Internships &middot; Dubai &middot; Abu Dhabi &middot; Online</p>
     <div class="foot-links">
-      <button type="button" data-scroll="programmes">All programmes</button>
+      <a href="mailto:rahul@pavetheway.ai">rahul@pavetheway.ai</a>
+      <a href="tel:+971568924365">+971 56 892 4365</a>
       <button type="button" data-scroll="parents">For parents</button>
       <button type="button" data-scroll="faq">FAQ</button>
     </div>
@@ -812,7 +816,7 @@ const PROGRAMMES = [
     color:"var(--c-mkt)", icon:"tag",
     blurb:"How brands are created, positioned, marketed and grown \u2014 then build one of your own.",
     length:null, fee:null, vat:null,
-    ages:"14\u201317", location:null, hours:null,
+    ages:"14\u201317", location:"Dubai", mode:"In person", hours:null,
     lede:"Ever wondered why some brands stand out from the crowd? Step into the world of FMCG brand management and learn how brands are created, positioned, marketed and grown.",
     scheduleLabel:null, schedule:[],
     experienceLabel:"Master the basics",
@@ -1029,7 +1033,7 @@ const PROGRAMMES = [
     color:"var(--c-mkt)", icon:"megaphone",
     blurb:"Luxury branding, media strategy and personal branding, ending in your own campaign.",
     length:null, fee:"AED 1,750", vat:"+ VAT",
-    ages:null, location:null, mode:null, hours:null,
+    ages:null, location:"Dubai", mode:"In person", hours:null,
     lede:"Step into the exciting world of PR, luxury branding, media strategy and personal branding through practical activities, creative workshops and real-world case studies.",
     scheduleLabel:null, schedule:[],
     experienceLabel:"What you’ll learn",
@@ -1052,7 +1056,7 @@ const PROGRAMMES = [
     color:"var(--c-design)", icon:"plan",
     blurb:"Space planning with AutoCAD and 3ds Max, from first concept to a client-ready presentation.",
     length:null, fee:"AED 1,750", vat:"+ 5% VAT",
-    ages:null, location:null, mode:null, hours:null,
+    ages:null, location:"Dubai", mode:"In person", hours:null,
     lede:"Transform spaces into functional, beautiful and inspiring environments through practical interior design projects and industry-standard tools.",
     scheduleLabel:null, schedule:[],
     experienceLabel:"What you’ll learn",
@@ -1100,7 +1104,7 @@ const PROGRAMMES = [
     color:"var(--c-design)", icon:"hanger",
     blurb:"From concept to collection — sketching, fabrics, styling and a mini collection of your own.",
     length:null, fee:"AED 2,000", vat:"+ VAT",
-    ages:null, location:null, mode:null, hours:null,
+    ages:null, location:"Dubai", mode:"In person", hours:null,
     lede:"A hands-on introduction to the world of fashion — from concept to collection.",
     scheduleLabel:null, schedule:[],
     experienceLabel:"Students will explore",
@@ -1119,27 +1123,25 @@ const PROGRAMMES = [
   }
 ];
 
-/* Display order on the index. Edit this to re-shuffle the cards. */
-const ORDER = [
-  "it-ai-product","cybersecurity",
-  "medical","medical-abu-dhabi","dentistry","first-aid","veterinary",
-  "aerospace-engineering","pathways-to-aerospace","drone-engineering","mechanical-engineering",
-  "astronomy",
-  "psychology","psychology-virtual",
-  "micro-start-ups","human-resources","fmcg-branding","pr-luxury-branding",
-  "sports-management","hospitality",
-  "video-editing","digital-filmmaking","graphic-design","interior-design","fashion-design"
-];
-PROGRAMMES.sort((a,b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug));
+/* Cards are always listed A–Z by programme name. */
+PROGRAMMES.sort((a, b) => a.title.localeCompare(b.title, "en", {sensitivity: "base"}));
 
 /* Older entries predate the mode field, so derive it from the location. */
 PROGRAMMES.forEach(p => {
   if (p.mode === undefined) p.mode = p.location === "Online" ? "Online" : (p.location ? "In person" : null);
 });
 
-/* Set CONTACT to a mailto:, https:// or wa.me link to turn the sidebar
-   button into a live "Ask about dates" call to action. */
-const CONTACT = "";
+/* Booking contact. Used by the sidebar buttons and the footer. */
+const CONTACT = {
+  email: "rahul@pavetheway.ai",
+  phone: "+971 56 892 4365",
+  whatsapp: "971568924365"
+};
+const mailtoFor = p =>
+  `mailto:${CONTACT.email}?subject=${encodeURIComponent("Internship enquiry: " + p.title)}`
+  + `&body=${encodeURIComponent(`Hi Rahul,\n\nI'd like to know more about ${p.title} — the next start dates and how to reserve a place.\n\nStudent name:\nStudent age:\nSchool:\n\nThank you,\n`)}`;
+const waFor = p =>
+  `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hi Rahul, I'd like to know more about ${p.title} — next dates and availability.`)}`;
 
 const app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -1177,7 +1179,7 @@ function renderHome(){
         <p class="hero-sub">Short, supervised internships on site in Dubai and Abu Dhabi, or fully online. Real workplaces, real professionals, real tasks &mdash; and every programme ends with something your child has actually made.</p>
         <div class="hero-cta">
           <button type="button" class="btn btn-primary" data-scroll="programmes">Browse programmes</button>
-          <button type="button" class="btn btn-ghost" data-scroll="parents">Information for parents</button>
+          <a class="btn btn-ghost" href="mailto:rahul@pavetheway.ai?subject=Internship%20enquiry">Talk to us</a>
         </div>
         <div class="trust">
           <span><b>${PROGRAMMES.length}</b> programmes</span>
@@ -1193,7 +1195,7 @@ function renderHome(){
         <div class="sec-head">
           <p class="eyebrow">The programmes</p>
           <h2>${PROGRAMMES.length} programmes. Pick the one you&rsquo;re curious about.</h2>
-          <p>On site in Dubai and Abu Dhabi, or fully online. Search below, or tap any card for the full plan, fees and what students take home.</p>
+          <p>On site in Dubai and Abu Dhabi, or fully online, listed A&ndash;Z. Search below, or tap any card for the full plan, fees and what students take home.</p>
         </div>
         <div class="search-row">
           <div class="search" id="search-box">
@@ -1428,8 +1430,15 @@ function renderDetail(p, i){
             ${p.length ? `<li><span class="k">Length</span><span class="v">${esc(p.length)}${p.hours ? `<small>${esc(p.hours)}</small>` : ""}</span></li>` : ""}
             <li><span class="k">Fee</span><span class="v">${p.fee ? `${esc(p.fee)}<small>${esc(p.vat)}</small>` : "On request"}</span></li>
           </ul>
-          ${CONTACT ? `<a class="btn btn-primary" href="${CONTACT}">Ask about dates</a>` : `<div class="contact-stub">Contact the Pave team</div>`}
+          <div class="apply-actions">
+            <a class="btn btn-primary" href="${mailtoFor(p)}">Email about dates</a>
+            <a class="btn btn-ghost" href="${waFor(p)}" target="_blank" rel="noopener">WhatsApp us</a>
+          </div>
           <p>Cohorts are small and run on fixed dates. Get in touch to check the next start date for this programme and reserve a place.</p>
+          <p class="apply-direct">
+            <a href="mailto:${CONTACT.email}">${CONTACT.email}</a><br>
+            <a href="tel:+${CONTACT.whatsapp}">${CONTACT.phone}</a>
+          </p>
         </div>
       </aside>
     </div>

@@ -12,7 +12,9 @@ Twenty-five programmes, each with its own page: day-by-day plan, fees, and what 
 Everything lives in `index.html`:
 
 - **Programme content** — the `PROGRAMMES` array in the `<script>` block. Each entry has the title, field, colour, fees, day-by-day schedule and outcomes.
-- **Booking link** — set `const CONTACT` to a `mailto:`, `https://` or `wa.me` link to turn the "Contact the Pave team" box into a live "Ask about dates" button.
+- **Booking contact** — the `CONTACT` object holds the email, phone and WhatsApp number used by the sidebar buttons and the footer.
 - **Colours** — the `--c-*` tokens at the top of the `<style>` block, one per discipline.
+
+Cards are listed A–Z by programme name, so a new entry can be added anywhere in the array.
 
 Commit to `main` and GitHub Pages redeploys within a minute or two.
