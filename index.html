@@ -444,6 +444,35 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
 .step h3{font-size:1.2rem;margin-bottom:.4rem;}
 .step p{margin:0;color:var(--ink-2);font-size:.95rem;}
 
+/* ============ reviews ============ */
+.quotes{columns:3;column-gap:1.25rem;}
+@media (max-width:60rem){ .quotes{columns:2;} }
+@media (max-width:40rem){ .quotes{columns:1;} }
+.quote{
+  break-inside:avoid;margin:0 0 1.25rem;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.4rem 1.2rem;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:.85rem;
+}
+.stars{display:inline-flex;gap:.12rem;}
+.stars svg{width:1rem;height:1rem;}
+.stars .on{fill:var(--sun);}
+.stars .off{fill:var(--line);}
+.quote blockquote{
+  margin:0;font-family:var(--display);font-weight:400;
+  font-size:1.02rem;line-height:1.5;color:var(--ink);
+}
+.quote figcaption{display:flex;align-items:center;gap:.6rem;margin-top:auto;}
+.quote .who{
+  font-size:.85rem;font-weight:700;color:var(--ink-2);
+}
+.quote .who::before{
+  content:"";display:inline-block;vertical-align:middle;
+  width:1.5rem;height:1.5rem;border-radius:50%;margin-right:.55rem;
+  background:var(--brand-soft);
+  box-shadow:inset 0 0 0 1px var(--line);
+}
+
 /* ============ parents band ============ */
 .parents{
   background:var(--surface);
@@ -601,7 +630,8 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
   .dates-band{background:#fff;border-block:1px solid #bbb;break-inside:avoid;}
   .dates-list li,.dates-slots b{box-shadow:none;border:1px solid #bbb;background:#fff;}
   body{background:#fff;font-size:11pt;}
-  .card,.step,.parents,.apply,.compare,.faq details{
+  .quotes{columns:2;}
+  .card,.step,.parents,.apply,.compare,.faq details,.quote{
     box-shadow:none !important;border:1px solid #bbb;break-inside:avoid;
   }
   .card::after{display:none;}
@@ -631,6 +661,7 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
       <button type="button" data-scroll="programmes">Programmes</button>
       <button type="button" data-scroll="dates">Dates</button>
       <button type="button" data-scroll="how" class="hide-sm">How it works</button>
+      <button type="button" data-scroll="reviews" class="hide-sm">Reviews</button>
       <button type="button" data-scroll="parents" class="hide-sm">For parents</button>
       <button type="button" data-scroll="schools" class="hide-sm">For schools</button>
       <button type="button" data-scroll="faq" class="hide-sm">FAQ</button>
@@ -1408,6 +1439,18 @@ PROGRAMMES.forEach(p => {
   if (p.mode === undefined) p.mode = p.location === "Online" ? "Online" : (p.location ? "In person" : null);
 });
 
+/* Reviews, transcribed from Google. Ratings are shown exactly as left. */
+const REVIEWS = [
+  { name:"Sadia Shiraz", stars:5, text:"I am truly delighted with my son\u2019s experience. He had a wonderful and enriching internship, and the teacher did an excellent job of guiding and explaining everything to him so clearly. It was a very valuable and productive learning experience for him. We are extremely satisfied and grateful for all the support, guidance, and effort. Thank you so much! We truly appreciate it." },
+  { name:"Latifa", stars:5, text:"Amazing experience. I personally chose clinical psychology and forensic \u2014 it was an amazing experience, I learned a lot and it was very helpful and impactful. It improved my psychology skills and my two instructors were Gabriel and Joshua. Thanks a lot to them, I have learned so much more on forensic psychology and clinical." },
+  { name:"Vatsal Verma", stars:4, text:"A great experience for students who want to get their first taste of medicine and how hospitals function, operate and manage." },
+  { name:"Rohan Rehan", stars:5, text:"A very good platform to find internships for young teenagers. Highly recommended." },
+  { name:"Ayk Balabanian", stars:4, text:"Overall, it was a great experience and it was beneficial when it comes to the engineering field. The only thing holding back 5 stars is the things you get for the price you pay \u2014 I would\u2019ve expected more things included in the package for the price level. But other than that, I would recommend it, very enjoyable." }
+];
+const stars = n => `<span class="stars" role="img" aria-label="${n} out of 5 stars">`
+  + [1,2,3,4,5].map(i => `<svg viewBox="0 0 20 20" class="${i <= n ? "on" : "off"}" aria-hidden="true"><path d="m10 1.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg>`).join("")
+  + `</span>`;
+
 /* Delivery partner. Credited for trust; deliberately not linked, so every
    enquiry route on the site stays with Pave. Drop a data: URI into `logo`
    to swap the text lockup for the real artwork. */
@@ -1612,6 +1655,24 @@ function renderHome(){
             <h3>Leave with something real</h3>
             <p>A pitch, a proposal, a spec or a portfolio of practical skills &mdash; plus a signed certificate of completion for university applications.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="reviews">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow">Reviews</p>
+          <h2>What students and parents say.</h2>
+          <p>Left on Google by families who have been through a programme.</p>
+        </div>
+        <div class="quotes">
+          ${REVIEWS.map(r => `
+            <figure class="quote">
+              ${stars(r.stars)}
+              <blockquote>${esc(r.text)}</blockquote>
+              <figcaption><span class="who">${esc(r.name)}</span></figcaption>
+            </figure>`).join("")}
         </div>
       </div>
     </section>
