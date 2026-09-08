@@ -50,6 +50,7 @@
   --c-design:#96701A;
   --c-hosp:#7E2F44;
   --c-law:#6B4A2F;
+  --sc-red:#D0291C;
 
   --display:"Fraunces",Georgia,"Times New Roman",serif;
   --body:"DM Sans","Helvetica Neue",Arial,sans-serif;
@@ -93,6 +94,7 @@
     --c-design:#DBBD6A;
     --c-hosp:#DB93A6;
     --c-law:#CDA985;
+    --sc-red:#F4867A;
   }
 }
 :root[data-theme="dark"]{
@@ -129,6 +131,7 @@
   --c-design:#DBBD6A;
   --c-hosp:#DB93A6;
   --c-law:#CDA985;
+  --sc-red:#F4867A;
 }
 
 *,*::before,*::after{box-sizing:border-box;}
@@ -173,10 +176,9 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;text-w
 .head-in{display:flex;align-items:center;gap:1.5rem;padding-block:.85rem;}
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:700;}
 .brand-mark{
-  width:2rem;height:2rem;border-radius:9px;flex:none;
-  background:linear-gradient(140deg,var(--brand),var(--brand-deep));
-  color:var(--on-brand);display:grid;place-items:center;
-  font-family:var(--display);font-size:1.05rem;line-height:1;
+  width:2.15rem;height:2.15rem;flex:none;border-radius:9px;
+  background:#fff;object-fit:contain;padding:1px;
+  box-shadow:0 0 0 1px var(--line);
 }
 .brand-name{font-family:var(--display);font-size:1.15rem;}
 .brand-name em{font-style:normal;color:var(--ink-3);font-weight:400;}
@@ -326,6 +328,33 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
 }
 .card-foot .len{color:var(--ink-3);}
 .card-foot .fee{font-weight:700;font-variant-numeric:tabular-nums;}
+
+/* ============ delivery partner ============ */
+.sc-lockup{display:inline-flex;flex-direction:column;line-height:1.15;}
+.sc-name{font-family:var(--body);font-weight:700;letter-spacing:.02em;font-size:1.02rem;}
+.sc-name b{color:var(--ink);font-weight:700;}
+.sc-name i{color:var(--sc-red);font-style:normal;font-weight:700;}
+.sc-sub{
+  font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-2);margin-top:.12rem;
+}
+.sc-logo{height:2.4rem;width:auto;background:#fff;border-radius:6px;padding:2px;}
+
+.foot-partner{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.1rem;
+  padding-block:1.5rem;border-bottom:1px solid var(--line);
+}
+.foot-partner-label{font-size:.82rem;color:var(--ink-3);}
+
+.apply-partner{
+  margin-top:1.1rem;padding-top:.95rem;border-top:1px solid var(--line);
+  display:flex;flex-direction:column;gap:.35rem;
+}
+.apply-partner-label{
+  font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+}
+.apply-partner .sc-name{font-size:.92rem;}
+.apply-partner .sc-logo{height:2rem;}
 
 /* ============ dates band ============ */
 .dates-band{
@@ -596,7 +625,7 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="#/">
-      <span class="brand-mark">P</span>
+      <img class="brand-mark" src="data:image/png;base64,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" alt="" width="34" height="34">
       <span class="brand-name">Pave <em>Internships</em></span>
     </a>
     <nav class="nav">
@@ -613,6 +642,10 @@ section.band{padding-block:clamp(3rem,6vw,5rem);}
 <main id="app"></main>
 
 <footer class="site-foot">
+  <div class="wrap foot-partner">
+    <span class="foot-partner-label">Programmes delivered in partnership with</span>
+    <span id="foot-partner-mark"></span>
+  </div>
   <div class="wrap foot-in">
     <p>Pave Internships &middot; Dubai &middot; Abu Dhabi &middot; Online</p>
     <div class="foot-links">
@@ -1376,6 +1409,21 @@ PROGRAMMES.forEach(p => {
   if (p.mode === undefined) p.mode = p.location === "Online" ? "Online" : (p.location ? "In person" : null);
 });
 
+/* Delivery partner. Credited for trust; deliberately not linked, so every
+   enquiry route on the site stays with Pave. Drop a data: URI into `logo`
+   to swap the text lockup for the real artwork. */
+const PARTNER = {
+  name: "Smart Concepts of Management Consulting",
+  tagline: "Empowering Minds",
+  logo: ""
+};
+const partnerMark = () => PARTNER.logo
+  ? `<img class="sc-logo" src="${PARTNER.logo}" alt="${esc(PARTNER.name)}">`
+  : `<span class="sc-lockup" role="img" aria-label="${esc(PARTNER.name)}">
+       <span class="sc-name"><b>SMART</b> <i>CONCEPTS</i></span>
+       <span class="sc-sub">of Management Consulting</span>
+     </span>`;
+
 /* Upcoming cohort dates. Edit here and every place on the site updates. */
 const DATES = [
   { term: "October Break", year: "2026", slots: ["12\u201316 October", "19\u201323 October"] },
@@ -1582,6 +1630,7 @@ function renderHome(){
             <li>${TICK}<div><b>Age-appropriate by design</b><span>The Dubai programmes are built specifically for 14&ndash;17 year olds. Both medical programmes are observational only &mdash; no clinical procedures.</span></div></li>
             <li>${TICK}<div><b>Small cohorts, fixed dates</b><span>Places are limited so every student gets real time with the professionals leading the week.</span></div></li>
             <li>${TICK}<div><b>Something to show for it</b><span>A signed certificate of completion, plus finished work students can talk about in interviews and applications.</span></div></li>
+            <li>${TICK}<div><b>Run by an established training partner</b><span>Programmes are delivered in partnership with Smart Concepts of Management Consulting, and booked through Pave.</span></div></li>
             <li>${TICK}<div><b>Clear pricing</b><span>AED 800&ndash;2,500 per programme. Fees are quoted excluding VAT.</span></div></li>
           </ul>
         </div>
@@ -1758,6 +1807,10 @@ function renderDetail(p, i){
             <a class="btn btn-ghost" href="${waFor(p)}" target="_blank" rel="noopener">WhatsApp us</a>
           </div>
           <p>Cohorts are small and run on fixed dates. Get in touch to check the next start date for this programme and reserve a place.</p>
+          <div class="apply-partner">
+            <span class="apply-partner-label">Delivered by</span>
+            ${partnerMark()}
+          </div>
           <p class="apply-direct">
             <a href="mailto:${CONTACT.email}">${CONTACT.email}</a><br>
             <a href="tel:+${CONTACT.whatsapp}">${CONTACT.phone}</a>
@@ -1792,6 +1845,8 @@ function route(){
   if (i === -1) renderHome(); else renderDetail(PROGRAMMES[i], i);
   window.scrollTo(0,0);
 }
+document.getElementById("foot-partner-mark").innerHTML = partnerMark();
+
 window.addEventListener("hashchange", route);
 route();
 </script>

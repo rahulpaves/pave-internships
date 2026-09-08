@@ -12,6 +12,7 @@ Thirty programmes, each with its own page: day-by-day plan, fees, and what stude
 Everything lives in `index.html`:
 
 - **Programme content** — the `PROGRAMMES` array in the `<script>` block. Each entry has the title, field, colour, fees, day-by-day schedule and outcomes.
+- **Delivery partner** — the `PARTNER` object. Paste a `data:` URI into `logo` to replace the text lockup with the real Smart Concepts artwork. It is deliberately not a link, so every enquiry route on the site stays with Pave.
 - **Cohort dates** — the `DATES` array. Edit it once and the homepage band, every programme's booking box and the FAQ all update.
 - **Booking contact** — the `CONTACT` object holds the email, phone and WhatsApp number used by the sidebar buttons and the footer.
 - **Colours** — the `--c-*` tokens at the top of the `<style>` block, one per discipline.
